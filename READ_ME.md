@@ -5,12 +5,15 @@ Preparation
 
 -Creer une chaine avec strsub pour récupérer toutes les pieces sans ligne/colonne vide
 
--Repasser la chaine sans ligne/colonne vide au split_newline && Ajouter des newline entre les pieces
+-Repasser la chaine sans ligne/colonne vide au split_newline
+
+&& Ajouter des newline entre les pieces
 
 -Definir une map remplie de points avec un coté max
 
 
 Resolution
+
 
 -Placer piece tout en haut à gauche
 
