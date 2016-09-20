@@ -15,6 +15,7 @@ Preparation
 Resolution
 
 
+
 -Placer piece tout en haut à gauche
 
 -Tester toutes positions jusqu’a en trouver une valide la plus convenable (voir sujet)
