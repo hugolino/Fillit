@@ -1,7 +1,7 @@
 # Newfillit
 Fillit 2.0
 
-Preparation
+<b><i>Préparation</i></b>
 
 -Creer une chaine avec strsub pour récupérer toutes les pieces sans ligne/colonne vide
 
@@ -12,8 +12,7 @@ Preparation
 -Definir une map remplie de points avec un coté max
 
 
-Resolution
-
+<b><i>Résolution</i></b>
 
 
 -Placer piece tout en haut à gauche
