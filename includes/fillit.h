@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/01/27 12:05:28 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 13:20:18 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "libft.h"
+# include "../Libft/libft.h"
 
 # define BUFF_SIZE 100000
 
@@ -60,34 +60,34 @@ int			ft_check_lines(char **tab, int i);
 
 /* ft_pieces_l.c */
 
-char		*ft_is_lhorl(char **tab, char *buf, int pieces);
-char		*ft_is_lhorr(char **tab, char *buf, int pieces);
-char		*ft_is_lverr(char **tab, char *buf, int pieces);
-char		*ft_is_lverl(char **tab, char *buf, int pieces);
+char		*ft_is_lhorl(char **tab, char *buf, int *pieces);
+char		*ft_is_lhorr(char **tab, char *buf, int *pieces);
+char		*ft_is_lverr(char **tab, char *buf, int *pieces);
+char		*ft_is_lverl(char **tab, char *buf, int *pieces);
 
 /* ft_pieces_revlsq.c */
 
-char		*ft_is_square(char **tab, char *buf, int pieces);
-char		*ft_is_lrevhorl(char **tab, char *buf, int pieces);
-char		*ft_is_lrevhorr(char **tab, char *buf, int pieces);
-char		*ft_is_lrevverr(char **tab, char *buf, int pieces);
-char		*ft_is_lrevverl(char **tab, char *buf, int pieces);
+char		*ft_is_square(char **tab, char *buf, int *pieces);
+char		*ft_is_lrevhorl(char **tab, char *buf, int *pieces);
+char		*ft_is_lrevhorr(char **tab, char *buf, int *pieces);
+char		*ft_is_lrevverr(char **tab, char *buf, int *pieces);
+char		*ft_is_lrevverl(char **tab, char *buf, int *pieces);
 
 /* ft_line_s_z.c */
 
-char		*ft_is_line_hor(char **tab, char *buf, int pieces);
-char		*ft_is_line_ver(char **tab, char *buf, int pieces);
-char		*ft_is_s(char **tab, char *buf, int pieces);
-char		*ft_is_s_up(char **tab, char *buf, int pieces);
-char		*ft_is_z(char **tab, char *buf, int pieces);
+char		*ft_is_line_hor(char **tab, char *buf, int *pieces);
+char		*ft_is_line_ver(char **tab, char *buf, int *pieces);
+char		*ft_is_s(char **tab, char *buf, int *pieces);
+char		*ft_is_s_up(char **tab, char *buf, int *pieces);
+char		*ft_is_z(char **tab, char *buf, int *pieces);
 
 /* ft_z_t.c */
 
-char		*ft_is_z_up(char **tab, char *buf, int pieces);
-char		*ft_is_t(char **tab, char *buf, int pieces);
-char		*ft_is_t_left(char **tab, char *buf, int pieces);
-char		*ft_is_t_right(char **tab, char *buf, int pieces);
-char		*ft_is_t_up(char **tab, char *buf, int pieces);
+char		*ft_is_z_up(char **tab, char *buf, int *pieces);
+char		*ft_is_t(char **tab, char *buf, int *pieces);
+char		*ft_is_t_left(char **tab, char *buf, int *pieces);
+char		*ft_is_t_right(char **tab, char *buf, int *pieces);
+char		*ft_is_t_up(char **tab, char *buf, int *pieces);
 
 /* ft_cpy_tetri.c */
 
