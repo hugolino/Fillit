@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 13:26:40 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 13:35:27 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int		main(int argc, char **argv)
 		tab = ft_bufcpy(buf);
 		ft_puttab(tab, buf);
 		ft_errors(ret, buf, tab);
-		doitall(buf);
+		ft_sub_trim(tab, buf);
+		//doitall(buf);
 	}
 	return (0);
 }
