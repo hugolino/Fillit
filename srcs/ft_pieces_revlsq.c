@@ -6,16 +6,16 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 11:23:47 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:03:04 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_is_square(char **tab, char *buf, int pieces)
+char	*ft_is_square(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -31,15 +31,15 @@ char	*ft_is_square(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_lrevhorl(char **tab, char *buf, int pieces)
+char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -55,15 +55,15 @@ char	*ft_is_lrevhorl(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_lrevhorr(char **tab, char *buf, int pieces)
+char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -79,15 +79,15 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_lrevverr(char **tab, char *buf, int pieces)
+char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -103,15 +103,15 @@ char	*ft_is_lrevverr(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_lrevverl(char **tab, char *buf, int pieces)
+char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -127,5 +127,5 @@ char	*ft_is_lrevverl(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }

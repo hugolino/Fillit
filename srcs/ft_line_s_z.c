@@ -6,18 +6,18 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 11:22:50 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:03:33 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_is_line_hor(char **tab, char *buf, int pieces)
+char	*ft_is_line_hor(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -33,15 +33,15 @@ char	*ft_is_line_hor(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_line_ver(char **tab, char *buf, int pieces)
+char	*ft_is_line_ver(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -57,15 +57,15 @@ char	*ft_is_line_ver(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_s(char **tab, char *buf, int pieces)
+char	*ft_is_s(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -81,15 +81,15 @@ char	*ft_is_s(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_s_up(char **tab, char *buf, int pieces)
+char	*ft_is_s_up(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -105,15 +105,15 @@ char	*ft_is_s_up(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
 
-char	*ft_is_z(char **tab, char *buf, int pieces)
+char	*ft_is_z(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -129,5 +129,5 @@ char	*ft_is_z(char **tab, char *buf, int pieces)
 		}
 		i++;
 	}
-	return ("");
+	return (NULL);
 }
