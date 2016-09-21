@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 13:29:57 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 14:49:21 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*ft_trim(char **tab, char *buf, int *pieces)
 {
  	char	*trim;
 	
+	trim = (char *)malloc(sizeof(char) * ft_strlen(buf));
 	while (*pieces < ft_countl(buf))
 	{
 		trim = ft_strcat(trim, ft_is_line_hor(tab, buf, pieces));
@@ -38,6 +39,8 @@ char	*ft_trim(char **tab, char *buf, int *pieces)
 		trim = ft_strcat(trim, ft_is_t_left(tab, buf, pieces));
 		trim = ft_strcat(trim, ft_is_t_right(tab, buf, pieces));
 		trim = ft_strcat(trim, ft_is_t_up(tab, buf, pieces));
+		trim = ft_strcat(trim, "\n");
+		*pieces += 5;
 	}
 	printf("%s", trim);
 	return (trim);
@@ -48,9 +51,8 @@ char	*ft_sub_trim(char **tab, char *buf)
 	int		*pieces;
 	char	*trim;
 
-	pieces = NULL;
+	pieces = (int *)malloc(sizeof(int));
 	*pieces = 0;
-	trim = "";
 	trim = ft_trim(tab, buf, pieces);
 	return (trim);
 }
