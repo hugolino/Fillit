@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 16:05:57 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 16:22:34 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ char	*ft_is_t_up(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	while (i < ft_countl(buf) || tab[i][0] != '\n')
+	while ((i < ft_countl(buf) || tab[i][0] != '\n') && (i + 1) < 4 && (i - 1) >= 0\
+	&& (j - 1) >= 0 && (j + 1) < 4)
 	{
 		j = 0;
 		while (j < 6)
