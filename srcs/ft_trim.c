@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 15:51:25 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 17:29:30 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ char	*ft_trim(char **tab, char *buf, int *pieces)
 		trim = ft_strcat(trim, ft_is_t_left(tab, buf, pieces));
 		trim = ft_strcat(trim, ft_is_t_right(tab, buf, pieces));
 		trim = ft_strcat(trim, ft_is_t_up(tab, buf, pieces));
-		printf("pieces = %d\n", *pieces);
-		printf("countl = %d\n", ft_countl(buf));
 		*pieces += 5;
-		printf("%s", trim);
 	}
+	printf("%s", trim);
 	return (trim);
 }
 

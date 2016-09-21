@@ -6,11 +6,12 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 16:04:15 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 17:06:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 {
@@ -18,6 +19,7 @@ char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LHORL\n");
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
 		j = 0;
@@ -43,6 +45,7 @@ char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LHORR\n");
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
 		j = 0;
@@ -68,6 +71,7 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LVERR\n");
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
 		j = 0;
@@ -75,7 +79,8 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
 			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#'\
-			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0\
+			&& ft_strcmp(ft_is_t_left(tab, buf, pieces), "\n.#\n##\n.#\n") != 0)
 			{
 				pieces += 5;
 				return ("\n#.\n#.\n##\n");
@@ -93,6 +98,7 @@ char	*ft_is_lverl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LVERL\n");
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
 		j = 0;

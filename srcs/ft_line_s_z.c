@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 16:01:26 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 17:17:57 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*ft_is_line_hor(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LINE HOR\n");
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -44,6 +45,7 @@ char	*ft_is_line_ver(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE LINE VER\n");
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -69,6 +71,7 @@ char	*ft_is_s(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE S\n");
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -95,6 +98,7 @@ char	*ft_is_s_up(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE S UP\n");
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
@@ -102,7 +106,8 @@ char	*ft_is_s_up(char **tab, char *buf, int *pieces)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
 			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j + 1] == '#'\
-			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0\
+			&& ft_strcmp(ft_is_t_left(tab, buf, pieces), "\n.#\n##\n.#\n") != 0)
 			{
 				pieces += 5;
 				return ("\n#.\n##\n.#\n");
@@ -120,6 +125,7 @@ char	*ft_is_z(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
+	printf("IT'S HIP TO BE Z\n");
 	while (i < ft_countl(buf) || tab[i][0] != '\n')
 	{
 		j = 0;
