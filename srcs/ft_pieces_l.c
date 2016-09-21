@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 12:02:36 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:30:24 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
@@ -55,7 +55,7 @@ char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lverr(char **tab, char *buf, int *pieces)
@@ -79,7 +79,7 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lverl(char **tab, char *buf, int *pieces)
@@ -103,5 +103,5 @@ char	*ft_is_lverl(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }

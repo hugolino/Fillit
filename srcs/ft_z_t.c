@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 12:04:39 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:28:54 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_is_z_up(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_t(char **tab, char *buf, int *pieces)
@@ -57,7 +57,7 @@ char	*ft_is_t(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_t_left(char **tab, char *buf, int *pieces)
@@ -81,7 +81,7 @@ char	*ft_is_t_left(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_t_right(char **tab, char *buf, int *pieces)
@@ -105,7 +105,7 @@ char	*ft_is_t_right(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_t_up(char **tab, char *buf, int *pieces)
@@ -129,5 +129,5 @@ char	*ft_is_t_up(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }

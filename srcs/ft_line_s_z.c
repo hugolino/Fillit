@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 12:03:33 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:29:25 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_is_line_hor(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_line_ver(char **tab, char *buf, int *pieces)
@@ -57,7 +57,7 @@ char	*ft_is_line_ver(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_s(char **tab, char *buf, int *pieces)
@@ -81,7 +81,7 @@ char	*ft_is_s(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_s_up(char **tab, char *buf, int *pieces)
@@ -105,7 +105,7 @@ char	*ft_is_s_up(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_z(char **tab, char *buf, int *pieces)
@@ -129,5 +129,5 @@ char	*ft_is_z(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }

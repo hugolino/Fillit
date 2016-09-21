@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 12:03:04 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:29:59 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_is_square(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
@@ -55,7 +55,7 @@ char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
@@ -79,7 +79,7 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
@@ -103,7 +103,7 @@ char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
 
 char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
@@ -127,5 +127,5 @@ char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
 		}
 		i++;
 	}
-	return (NULL);
+	return ("");
 }
