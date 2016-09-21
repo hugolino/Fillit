@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 13:23:54 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 13:28:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ char		*ft_is_t(char **tab, char *buf, int *pieces);
 char		*ft_is_t_left(char **tab, char *buf, int *pieces);
 char		*ft_is_t_right(char **tab, char *buf, int *pieces);
 char		*ft_is_t_up(char **tab, char *buf, int *pieces);
+
+/* ft_trim.c */
+
+char		*ft_trim(char **tab, char *buf, int *pieces);
+char		*ft_sub_trim(char **tab, char *buf);
 
 /* ft_cpy_tetri.c */
 
