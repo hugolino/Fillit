@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 15:54:31 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 16:04:19 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
-			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#')
+			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n#..\n###\n");
@@ -74,7 +75,8 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
-			&& tab[i][j + 2] == '#' && tab[i + 2][j + 2] == '#')
+			&& tab[i][j + 2] == '#' && tab[i + 2][j + 2] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n###\n..#\n");
@@ -98,7 +100,8 @@ char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
-			&& tab[i + 1][j] == '#' && tab[i + 2][j] == '#')
+			&& tab[i + 1][j] == '#' && tab[i + 2][j] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n##\n#.\n#.\n");
@@ -122,7 +125,8 @@ char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j + 1] == '#' && tab[i + 1][j + 1] == '#' \
-			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#')
+			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n.#\n.#\n##\n");
