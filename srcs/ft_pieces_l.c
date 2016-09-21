@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 15:04:03 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 15:24:15 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
@@ -42,9 +42,9 @@ char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j + 2] == '#' && tab[i + 1][j] == '#' \
@@ -66,9 +66,9 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
@@ -90,9 +90,9 @@ char	*ft_is_lverl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
