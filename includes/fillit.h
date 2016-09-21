@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 13:20:18 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 13:23:54 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_diese(char **tab, char *buf);
 char		**ft_bufcpy(char *buf);
 int			ft_countl(char *buf);
 void		ft_putstr(char const *str);
-void		ft_puttabchar(char **tab, char *buf);
+void		ft_puttab(char **tab, char *buf);
 char		**ft_malloc_tab(char **tab, char *buf);
 
 /* ft_check_valid.c */
