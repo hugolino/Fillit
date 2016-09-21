@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 15:28:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 16:04:15 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
-			&& tab[i][j + 2] == '#' && tab[i + 1][j] == '#')
+			&& tab[i][j + 2] == '#' && tab[i + 1][j] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n###\n#..\n");
@@ -48,7 +49,8 @@ char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j + 2] == '#' && tab[i + 1][j] == '#' \
-			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#')
+			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n..#\n###\n");
@@ -72,7 +74,8 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
-			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#')
+			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n#.\n#.\n##\n");
@@ -96,7 +99,8 @@ char	*ft_is_lverl(char **tab, char *buf, int *pieces)
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
-			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j + 1] == '#')
+			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j + 1] == '#'\
+			&& ft_strcmp(ft_is_square(tab, buf, pieces), "\n##\n##\n") != 0)
 			{
 				pieces += 5;
 				return ("\n##\n.#\n.#\n");
