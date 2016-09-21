@@ -6,11 +6,12 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 15:03:22 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 15:22:52 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 char	*ft_is_square(char **tab, char *buf, int *pieces)
 {
@@ -18,11 +19,13 @@ char	*ft_is_square(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
+			
+			printf("IT'S HIP TO BE SQUARE\n");
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
 			&& tab[i + 1][j] == '#' && tab[i + 1][j + 1] == '#')
 			{
@@ -31,6 +34,7 @@ char	*ft_is_square(char **tab, char *buf, int *pieces)
 			}
 			j++;
 		}
+		printf("INCREASE i++\n");
 		i++;
 	}
 	return ("");
@@ -42,9 +46,9 @@ char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i + 1][j] == '#' \
@@ -66,9 +70,9 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
@@ -90,9 +94,9 @@ char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
@@ -114,9 +118,9 @@ char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
 	int j;
 
 	i = *pieces;
-	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
+		j = 0;
 		while (j < 6)
 		{
 			if (tab[i][j + 1] == '#' && tab[i + 1][j + 1] == '#' \
