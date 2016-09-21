@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 12:29:25 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 14:57:47 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_is_line_hor(char **tab, char *buf, int *pieces)
 			&& tab[i][j + 2] == '#' && tab[i][j + 3] == '#')
 			{
 				pieces += 5;
-				return ("\n####");
+				return ("\n####\n");
 			}
 			j++;
 		}
@@ -51,7 +51,7 @@ char	*ft_is_line_ver(char **tab, char *buf, int *pieces)
 			&& tab[i + 2][j] == '#' && tab[i + 3][j] == '#')
 			{
 				pieces += 5;
-				return ("#\n#\n#\n#");
+				return ("\n#\n#\n#\n#\n");
 			}
 			j++;
 		}
@@ -75,7 +75,7 @@ char	*ft_is_s(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j - 1] == '#' && tab[i + 1][j] == '#')
 			{
 				pieces += 5;
-				return ("\n.##\n##.");
+				return ("\n.##\n##.\n");
 			}
 			j++;
 		}
@@ -99,7 +99,7 @@ char	*ft_is_s_up(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j + 1] == '#')
 			{
 				pieces += 5;
-				return ("\n#.\n##\n.#");
+				return ("\n#.\n##\n.#\n");
 			}
 			j++;
 		}
@@ -123,7 +123,7 @@ char	*ft_is_z(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#')
 			{
 				pieces += 5;
-				return ("\n##.\n.##");
+				return ("\n##.\n.##\n");
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 13:08:31 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/21 15:03:22 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_is_square(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j] == '#' && tab[i + 1][j + 1] == '#')
 			{
 				pieces += 5;
-				return ("\n##\n##");
+				return ("\n##\n##\n");
 			}
 			j++;
 		}
@@ -51,7 +51,7 @@ char	*ft_is_lrevhorl(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#')
 			{
 				pieces += 5;
-				return ("\n#\n###");
+				return ("\n#..\n###\n");
 			}
 			j++;
 		}
@@ -75,7 +75,7 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces)
 			&& tab[i][j + 2] == '#' && tab[i + 2][j + 2] == '#')
 			{
 				pieces += 5;
-				return ("\n###\n#");
+				return ("\n###\n#\n");
 			}
 			j++;
 		}
@@ -99,7 +99,7 @@ char	*ft_is_lrevverr(char **tab, char *buf, int *pieces)
 			&& tab[i + 1][j] == '#' && tab[i + 2][j] == '#')
 			{
 				pieces += 5;
-				return ("\n##\n#\n#");
+				return ("\n##\n#\n#\n");
 			}
 			j++;
 		}
@@ -123,7 +123,7 @@ char	*ft_is_lrevverl(char **tab, char *buf, int *pieces)
 			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#')
 			{
 				pieces += 5;
-				return ("\n.#\n.#\n##");
+				return ("\n.#\n.#\n##\n");
 			}
 			j++;
 		}
