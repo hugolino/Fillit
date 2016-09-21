@@ -6,16 +6,16 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 11:23:18 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 12:30:24 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_is_lhorl(char **tab, char *buf, int pieces)
+char	*ft_is_lhorl(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -34,12 +34,12 @@ char	*ft_is_lhorl(char **tab, char *buf, int pieces)
 	return ("");
 }
 
-char	*ft_is_lhorr(char **tab, char *buf, int pieces)
+char	*ft_is_lhorr(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -58,12 +58,12 @@ char	*ft_is_lhorr(char **tab, char *buf, int pieces)
 	return ("");
 }
 
-char	*ft_is_lverr(char **tab, char *buf, int pieces)
+char	*ft_is_lverr(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
@@ -82,12 +82,12 @@ char	*ft_is_lverr(char **tab, char *buf, int pieces)
 	return ("");
 }
 
-char	*ft_is_lverl(char **tab, char *buf, int pieces)
+char	*ft_is_lverl(char **tab, char *buf, int *pieces)
 {
 	int i;
 	int j;
 
-	i = pieces;
+	i = *pieces;
 	j = 0;
 	while (tab[i][0] != '\n' || i < ft_countl(buf))
 	{
