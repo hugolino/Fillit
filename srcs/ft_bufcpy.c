@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 13:25:50 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 11:38:15 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/21 13:26:00 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			ft_countl(char *buf)
 	return (count);
 }
 
-void		ft_puttabchar(char **tab, char *buf)
+void		ft_puttab(char **tab, char *buf)
 {
 	int i;
 	int j;
