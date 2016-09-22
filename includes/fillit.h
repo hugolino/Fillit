@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/21 13:28:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/22 17:12:45 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,16 @@
 # include <fcntl.h>
 # include "../Libft/libft.h"
 
-# define BUFF_SIZE 100000
+# define BUFF_SIZE 1000
+# define COTE 2
 
-typedef	struct	s_map
+typedef struct	s_coord
 {
-	int x;
-	int y;	
-	int taille;
-	char **points;
-}				t_map;
-
-typedef	struct			s_tetriminos
-{
-	char 				*points;
-	struct s_tetriminos *next;
-	struct s_tetriminos *prev;
-}						t_triminos;
+	int	x_map;
+	int	y_map;
+	int x_piece;
+	int	y_piece;
+}				t_coord;
 
 /* ft_errors.c */
 
@@ -60,44 +54,47 @@ int			ft_check_lines(char **tab, int i);
 
 /* ft_pieces_l.c */
 
-char		*ft_is_lhorl(char **tab, char *buf, int *pieces);
-char		*ft_is_lhorr(char **tab, char *buf, int *pieces);
-char		*ft_is_lverr(char **tab, char *buf, int *pieces);
-char		*ft_is_lverl(char **tab, char *buf, int *pieces);
+char		*ft_is_lhorl(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lhorr(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lverr(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lverl(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_pieces_revlsq.c */
 
-char		*ft_is_square(char **tab, char *buf, int *pieces);
-char		*ft_is_lrevhorl(char **tab, char *buf, int *pieces);
-char		*ft_is_lrevhorr(char **tab, char *buf, int *pieces);
-char		*ft_is_lrevverr(char **tab, char *buf, int *pieces);
-char		*ft_is_lrevverl(char **tab, char *buf, int *pieces);
+char		*ft_is_square(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lrevhorl(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lrevhorr(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lrevverr(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_lrevverl(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_line_s_z.c */
 
-char		*ft_is_line_hor(char **tab, char *buf, int *pieces);
-char		*ft_is_line_ver(char **tab, char *buf, int *pieces);
-char		*ft_is_s(char **tab, char *buf, int *pieces);
-char		*ft_is_s_up(char **tab, char *buf, int *pieces);
-char		*ft_is_z(char **tab, char *buf, int *pieces);
+char		*ft_is_line_hor(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_line_ver(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_s(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_s_up(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_z(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_z_t.c */
 
-char		*ft_is_z_up(char **tab, char *buf, int *pieces);
-char		*ft_is_t(char **tab, char *buf, int *pieces);
-char		*ft_is_t_left(char **tab, char *buf, int *pieces);
-char		*ft_is_t_right(char **tab, char *buf, int *pieces);
-char		*ft_is_t_up(char **tab, char *buf, int *pieces);
+char		*ft_is_z_up(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_t(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_t_left(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_t_right(char **tab, char *buf, int *pieces, int *found);
+char		*ft_is_t_up(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_trim.c */
 
-char		*ft_trim(char **tab, char *buf, int *pieces);
+char		*ft_trim(char **tab, char *buf, int *pieces, int *found);
 char		*ft_sub_trim(char **tab, char *buf);
 
-/* ft_cpy_tetri.c */
+/* ft_parser.c */
 
-t_triminos	*ft_new_piece(t_triminos *trimino);
-void		ft_list(t_triminos *trimino, char *buf);
-void		doitall(char *buf);
+char		*ft_test_l(char **tab, char *buf, int *pieces, int *found);
+char		*ft_test_t(char **tab, char *buf, int *pieces, int *found);
+
+/* ft_map_creator.c */
+
+char		**ft_map_creator(void);
 
 #endif
