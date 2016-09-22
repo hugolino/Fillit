@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 10:15:42 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/20 14:42:23 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/09/22 11:25:20 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_diese(char **tab, char *buf)
 		}
 		if (tab[i][0] == '\n' || i == ft_countl(buf) - 1)
 		{
-			printf("# : %d\n", count);
 			if (count != 4)
 				return (0);
 			count = 0;
@@ -78,7 +77,6 @@ int		ft_chrn(char *buf)
 				j++;
 				i++;
 			}
-			printf("j : %d\n", j);
 			if (j != 4)
 				return (0);
 		}

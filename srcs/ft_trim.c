@@ -6,42 +6,36 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 17:29:30 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/22 15:40:57 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-char	*ft_trim(char **tab, char *buf, int *pieces)
+char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 {
  	char	*trim;
-	
+	int		i;
+
+	i = 0;
 	trim = (char *)malloc(sizeof(char) * ft_strlen(buf));
+	ft_puttab(tab, buf);
 	while (*pieces < ft_countl(buf))
 	{
-		trim = ft_strcat(trim, ft_is_square(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_line_hor(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_line_ver(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_s(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_s_up(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_z(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lhorl(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lhorr(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lverr(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lverl(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lrevhorl(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lrevhorr(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lrevverr(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_lrevverl(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_z_up(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_t(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_t_left(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_t_right(tab, buf, pieces));
-		trim = ft_strcat(trim, ft_is_t_up(tab, buf, pieces));
+		*found = 0;
+		trim = ft_strcat(trim, ft_is_square(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_z(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_z_up(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_line_hor(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_line_ver(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_s(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_is_s_up(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_test_t(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;
 	}
-	printf("%s", trim);
+	printf("\ntrim = \n%s", trim);
 	return (trim);
 }
 
@@ -49,9 +43,11 @@ char	*ft_sub_trim(char **tab, char *buf)
 {
 	int		*pieces;
 	char	*trim;
+	int		*found;
 
 	pieces = (int *)malloc(sizeof(int));
 	*pieces = 0;
-	trim = ft_trim(tab, buf, pieces);
+	found = (int *)malloc(sizeof(int));
+	trim = ft_trim(tab, buf, pieces, found);
 	return (trim);
 }
