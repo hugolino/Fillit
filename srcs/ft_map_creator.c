@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/22 17:12:38 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/28 12:04:08 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,22 @@ char	**ft_map_creator(void)
 	return (tab);
 }
 
-char	**ft_prepare_algo(char **trim)
+void	ft_prepare_algo(char **trim)
 {
 	char	**map;
-	t_coord	*coord;
+	int		cotes;
+	t_coord	*cd;
 
-	coord->x_map
+	cd->x_m = 0;
+	cd->y_m = 0;
+	cd->x_p = 0;
+	cd->y_p = 0;
+	cote = 2;
 	map = ft_map_creator();
-
+	map = ft_resolve(map, coord, trim, cotes);
 }
+
+char	**ft_resolve(char **map, t_coord *coord, char **trim, int cotes)
+{
+	char	**save_map;
+
