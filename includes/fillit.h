@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/28 11:52:18 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/28 12:25:07 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../Libft/libft.h"
 
 # define BUFF_SIZE 1000
-# define COTE 2
 
 typedef struct	s_coord
 {
