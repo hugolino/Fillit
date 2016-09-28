@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/28 12:04:08 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/28 12:32:41 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,17 @@ void	ft_prepare_algo(char **trim)
 	map = ft_resolve(map, coord, trim, cotes);
 }
 
-char	**ft_resolve(char **map, t_coord *coord, char **trim, int cotes)
+char	**ft_resolve(char **map, t_coord *coord, char **trim, int cotes) // Potentiellement utiliser une struct differente pour coordonnees de map et piece
 {
 	char	**save_map;
 
+	save_map = map;
+	while (cd->y_map <= cotes)
+	{
+		cd->x_map = 0;
+		while (cd->x_map <= cotes)
+		{
+			
+		}
+	}
+}
