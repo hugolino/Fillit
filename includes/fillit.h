@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/22 17:12:45 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/28 11:52:18 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 
 typedef struct	s_coord
 {
-	int	x_map;
-	int	y_map;
-	int x_piece;
-	int	y_piece;
+	int	x_m;
+	int	y_m;
+	int x_p;
+	int	y_p;
 }				t_coord;
 
 /* ft_errors.c */
