@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 15:40:33 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 16:26:41 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,28 @@ int		main(int argc, char **argv)
 	char	**tab;
 	int		fd;
 	int		ret;
-	char	buf[BUFF_SIZE];
-	int		cotes;
+	t_coord	*cd;
+	size_t	i;
 
+	i = 0;
+	cd = (t_coord *)malloc(sizeof(t_coord));
+	COTE = 2;
 	tab = NULL;
-	cotes = 2;
+	BUF = (char *)malloc(sizeof(char) * BUFF_SIZE);
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		ret = read(fd, buf, BUFF_SIZE);
-		tab = ft_bufcpy(buf);
-		//ft_puttab(tab, buf);
-		ft_errors(ret, buf, tab);
-		ft_sub_trim(tab, buf);
-		//tab = ft_map_creator(cotes);
-		//ft_free_map(tab, cotes);
-		ft_prepare_algo(tab);
+		ret = read(fd, BUF, BUFF_SIZE);
+		tab = ft_bufcpy(BUF);
+		ft_errors(ret, BUF, tab);
+		ft_sub_trim(tab, BUF);
+		tab = ft_prepare_algo(tab, cd);
+		while (i < COTE)
+		{
+			printf("%s", tab[i]);
+			i++;
+		}
+		ft_free_map(tab, COTE);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 15:41:16 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 16:16:38 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,21 @@
 # define Y_M cd->y_m
 # define X_P cd->x_p
 # define Y_P cd->y_p
+# define NB_P cd->nb_p
+# define MAP cd->map
+# define COTE cd->cote
+# define BUF cd->buf
 
 typedef struct	s_coord
 {
-	int		x_m;
-	int		y_m;
-	int 	x_p;
-	int		y_p;
-	char	**save_map;
+	size_t	x_m;
+	size_t	y_m;
+	size_t	x_p;
+	size_t	y_p;
+	size_t	nb_p;
+	size_t	cote;
+	char	*buf;
+	char	**map;
 }				t_coord;
 
 /* ft_errors.c */
@@ -99,8 +106,9 @@ char		*ft_test_t(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_map_creator.c */
 
-char		**ft_map_creator(int cotes);
+char		**ft_map_creator(size_t cotes);
 void		ft_free_map(char **map, int cotes);
-void		ft_prepare_algo(char **trim);
+char		**ft_prepare_algo(char **trim, t_coord *cd);
+char		**ft_resolve(t_coord *cd, char **trim);
 
 #endif
