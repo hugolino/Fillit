@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/30 11:32:40 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 15:40:18 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,42 @@ void	ft_free_map(char **map, int cotes) //Free pour realloc et fin
 	}
 }
 
-/*void	ft_prepare_algo(char **trim)
+void	ft_prepare_algo(char **trim)
 {
 	char	**map;
 	int		cotes;
 	t_coord	*cd;
 
-	cd->x_m = 0;
-	cd->y_m = 0;
-	cd->x_p = 0;
-	cd->y_p = 0;
+	cd = (t_coord *)malloc(sizeof(t_coord));
+	X_M = 0;
+	Y_M = 0;
+	X_P = 0;
+	Y_P = 0;
 	cotes = 2;
-	map = ft_map_creator();
-	map = ft_resolve(map, cd, trim, cotes);
+	(void)trim;
+	map = ft_map_creator(cotes);
+	//map = ft_resolve(map, cd, trim, cotes);
 }
 
-char	**ft_resolve(char **map, t_coord *cd, char **trim, int cotes) // Potentiellement utiliser une struct differente pour coordonnees de map et piece
+/*char	**ft_resolve(char **map, t_coord *cd, char **trim, int cotes)
 {
-	char	**save_map;
-
-	save_map = map;
-	while (cd->y_map <= cotes)
+	
+	while (Y_M < cotes && Y_P < NOMBREDEPIECECREERFONCTION)
 	{
-		cd->x_map = 0;
-		while (cd->x_map <= cotes)
+		while (X_M < cotes)
 		{
-			
+			if (trim[Y_P][X_P] == '#' && map[Y_M][X_M] == '.')
+				map[Y_M][X_M] = trim[Y_P][X_P];
+			else if (trim[Y_P][X_P] == '#' && map[Y_M][X_M] == '#')
+			{
+				if (X_P < (ft_strlen(trim[Y_P])))
+					X_P++;
+				else
+				{
+					X_P = 0;
+					Y_P++;
+				}
+			}
 		}
 	}
 }*/

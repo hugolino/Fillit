@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 11:29:41 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 15:40:33 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		main(int argc, char **argv)
 	int		fd;
 	int		ret;
 	char	buf[BUFF_SIZE];
-	int		i;
 	int		cotes;
 
 	tab = NULL;
@@ -31,20 +30,10 @@ int		main(int argc, char **argv)
 		tab = ft_bufcpy(buf);
 		//ft_puttab(tab, buf);
 		ft_errors(ret, buf, tab);
-		//ft_sub_trim(tab, buf);
-		while (cotes < 10)
-		{
-			i = 0;
-			tab = ft_map_creator(cotes);
-			while (i < cotes)
-			{
-				printf("%s\n", tab[i]);
-				i++;
-			}
-			ft_free_map(tab, cotes);
-			printf("NO ES BUENO\n");
-			cotes++;
-		}
+		ft_sub_trim(tab, buf);
+		//tab = ft_map_creator(cotes);
+		//ft_free_map(tab, cotes);
+		ft_prepare_algo(tab);
 	}
-		return (0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 11:12:52 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 15:41:16 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,18 @@
 # include "../Libft/libft.h"
 
 # define BUFF_SIZE 1000
+# define X_M cd->x_m
+# define Y_M cd->y_m
+# define X_P cd->x_p
+# define Y_P cd->y_p
 
 typedef struct	s_coord
 {
-	int	x_m;
-	int	y_m;
-	int x_p;
-	int	y_p;
+	int		x_m;
+	int		y_m;
+	int 	x_p;
+	int		y_p;
+	char	**save_map;
 }				t_coord;
 
 /* ft_errors.c */
@@ -96,5 +101,6 @@ char		*ft_test_t(char **tab, char *buf, int *pieces, int *found);
 
 char		**ft_map_creator(int cotes);
 void		ft_free_map(char **map, int cotes);
+void		ft_prepare_algo(char **trim);
 
 #endif
