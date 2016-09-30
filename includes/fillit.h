@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/28 12:25:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/09/30 11:12:52 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ char		*ft_test_t(char **tab, char *buf, int *pieces, int *found);
 
 /* ft_map_creator.c */
 
-char		**ft_map_creator(void);
+char		**ft_map_creator(int cotes);
+void		ft_free_map(char **map, int cotes);
 
 #endif
