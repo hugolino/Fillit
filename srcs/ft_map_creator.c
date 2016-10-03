@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/03 13:54:24 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 14:47:38 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ void	ft_free_map(char **map, int cotes)
 
 char	**ft_prepare_algo(char **trim, t_coord *cd)
 {
-	printf("PREPARE\n");
 	X_M = 0;
 	Y_M = 0;
 	X_P = 0;
 	Y_P = 0;
 	NB_P = (ft_countl(BUF) / 4);
-	printf("nb_p = %zd\n", NB_P);
+	LET = 'A';
 	MAP = ft_map_creator(COTE);
 	MAP = ft_resolve(cd, trim);
 	return (MAP);
@@ -69,36 +68,50 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 
 char	**ft_resolve(t_coord *cd, char **trim)
 {
-	Y_P = 0;
 	Y_M = 0;
 	printf("RESOLVE\n");
-	while (Y_M < COTE)
+	while (Y_M < COTE && (Y_P / 4) <= NB_P)
 	{
-		if (trim[Y_P][0] == '\n')
-		{
-			Y_P++;
-			X_P = 0;
-		}
 		X_M = 0;
-		while (X_M < COTE && (Y_P / 4) < NB_P)
+		while (X_M < COTE && (Y_P / 4) <= NB_P)
 		{
-			if (trim[Y_P][X_P] == '#' && MAP[Y_M][X_M] == '.')
-				MAP[Y_M][X_M] = trim[Y_P][X_P];
-			if (X_P < (ft_strlen(trim[Y_P])))
+			if (trim[Y_P][0] == '\n')
+			{
+				printf("NEXT PIECE\n");
+				LET++;
+				Y_P++;
+				X_P = 0;
+				printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n", Y_P, X_P, Y_M);
+				ft_resolve(cd, trim);
+			}
+			if (MAP[Y_M][X_M] == '.')
+			{
+				if (trim[Y_P][X_P] == '#')
+					MAP[Y_M][X_M] = LET;
+				else if (trim[Y_P][X_P] == '\n')
+					MAP[Y_M][X_M] = trim[Y_P][X_P];
+				X_M++;
+			}
+			else if (MAP[Y_M][X_M] == '#')
+			{
+				printf("SEGFAULT\n");
+				X_M++;
+			}
+			if (X_P < (ft_strlen(trim[Y_P]) - 1))
 				X_P++;
 			else
 			{
 				X_P = 0;
 				Y_P++;
 			}
-			X_M++;
 		}
 		Y_M++;
 	}
-	if ((Y_P / 4) < NB_P && X_P < ft_strlen(trim[Y_P]))
+	if ((Y_P / 4) <= NB_P && X_P < ft_strlen(trim[Y_P]))
 	{
 		COTE++;
-		ft_resolve(cd, trim);
+		ft_prepare_algo(trim, cd);
 	}
+	printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n", Y_P, X_P, Y_M);
 	return (MAP);
 }
