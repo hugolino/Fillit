@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/03 12:57:05 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 15:29:38 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define COTE cd->cote
 # define BUF cd->buf
 # define TABCT tab[ct.i][ct.j]
+# define LET cd->letter
 
 typedef struct	s_int
 {
@@ -46,6 +47,7 @@ typedef struct	s_coord
 	size_t	cote;
 	char	*buf;
 	char	**map;
+	char	letter;
 }				t_coord;
 
 /* ft_errors.c */
