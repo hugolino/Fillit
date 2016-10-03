@@ -8,7 +8,7 @@ Fillit 2.0
 
 Actuellement, la fonction <i>ft_resolve</i> marche conjointement avec <i>ft_prepare_algo</i> et <i>ft_map_creator</i> :
 
-<i>prepare_algo</i> = Instancie les variables de la structure <i>t_coord</i>, appel de la fonction <i>ft_map_creator<i/>
+<i>prepare_algo</i> = Instancie les variables de la structure <i>t_coord</i>, appel de la fonction <i>ft_map_creator</i>
 
 <i>ft_map_creator</i> = Crée la Map en fonction de la taille de <i>Cote</i> indiquée (toujours un carré)
 
@@ -23,3 +23,5 @@ Le mieux que j'ai pu faire actuellement et de placer deux pièces avec les bonne
 
 
 BREF, ça commence à placer tout le bouzin, mais <i>n'importe comment</i> et pourtant <b>la norme a déjà été pulvérisée</b>. Bon courage!
+
+(J'ai aussi tout mis à la norme, surtout les fonctions finies mais pas normée. De rien c'est cadeau 👏)
