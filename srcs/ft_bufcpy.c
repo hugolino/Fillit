@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 13:25:50 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/22 11:23:02 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:33:07 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,33 +66,28 @@ void		ft_puttab(char **tab, char *buf)
 char		**ft_bufcpy(char *buf)
 {
 	char	**tab;
-	int		i;
-	int		j;
-	int		count;
+	t_int	ct;
 
 	tab = NULL;
-	i = 0;
-	count = 0;
+	ct.i = 0;
+	ct.k = 0;
 	tab = ft_malloc_tab(tab, buf);
-	while (buf[count] && i < (ft_countl(buf)))
+	while (buf[ct.k] && ct.i < (ft_countl(buf)))
 	{
-		j = 0;
-		while (j <= 4 && buf[count] && tab[i][j - 1] != '\n')
+		ct.j = 0;
+		while (ct.j <= 4 && buf[ct.k] && tab[ct.i][(ct.j) - 1] != '\n')
 		{
-			if (j == 4)
-				tab[i][j] = '\0';
-			tab[i][j] = buf[count];
-			if ((tab[i][j] != '\n' || tab[i][j] != '.' || tab[i][j] != '#'))
-				tab[i][j + 1] = '\0';
-			if (buf[count] == '\n' && buf[count - 1] == '\n')
-			{
-				tab[i][j] = '\n';
-			}
-			count++;
-			j++;
+			TABCT = buf[ct.k];
+			if ((TABCT != '\n' || TABCT != '.' || TABCT != '#'))
+				tab[ct.i][(ct.j) + 1] = '\0';
+			if (buf[ct.k] == '\n' && buf[ct.k] == '\n')
+				TABCT = '\n';
+			ct.k++;
+			ct.j++;
 		}
-		i++;
+		TABCT = '\0';
+		ct.i++;
 	}
-	tab[i][0] = '\n';
+	tab[ct.i][0] = '\n';
 	return (tab);
 }
