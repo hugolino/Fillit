@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/03 12:54:02 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 13:54:24 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,46 +60,45 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 	Y_M = 0;
 	X_P = 0;
 	Y_P = 0;
-	NB_P = (ft_countl(BUF) / 5);
+	NB_P = (ft_countl(BUF) / 4);
 	printf("nb_p = %zd\n", NB_P);
 	MAP = ft_map_creator(COTE);
-	(void)trim;
-	//MAP = ft_resolve(cd, trim);
+	MAP = ft_resolve(cd, trim);
 	return (MAP);
 }
 
-/*char	**ft_resolve(t_coord *cd, char **trim)
+char	**ft_resolve(t_coord *cd, char **trim)
 {
 	Y_P = 0;
 	Y_M = 0;
 	printf("RESOLVE\n");
-	while (Y_M < COTE && (Y_P / 5) < NB_P)
+	while (Y_M < COTE)
 	{
+		if (trim[Y_P][0] == '\n')
+		{
+			Y_P++;
+			X_P = 0;
+		}
 		X_M = 0;
-		while (X_M < COTE)
+		while (X_M < COTE && (Y_P / 4) < NB_P)
 		{
 			if (trim[Y_P][X_P] == '#' && MAP[Y_M][X_M] == '.')
 				MAP[Y_M][X_M] = trim[Y_P][X_P];
-			else if ((trim[Y_P][X_P] == '#' && MAP[Y_M][X_M] == '#') || trim[Y_P][X_P] == '.')
+			if (X_P < (ft_strlen(trim[Y_P])))
+				X_P++;
+			else
 			{
-				if (X_P < (ft_strlen(trim[Y_P])))
-					X_P++;
-				else
-				{
-					X_P = 0;
-					Y_P++;
-				}
+				X_P = 0;
+				Y_P++;
 			}
 			X_M++;
 		}
 		Y_M++;
 	}
-	if (Y_P == NB_P && X_P == (ft_strlen(trim[Y_P] - 1)))
-		return (MAP);
-	else
+	if ((Y_P / 4) < NB_P && X_P < ft_strlen(trim[Y_P]))
 	{
 		COTE++;
 		ft_resolve(cd, trim);
 	}
-	return (MAP = ft_map_creator(COTE));
-}*/
+	return (MAP);
+}
