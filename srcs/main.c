@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 16:26:41 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 14:05:39 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int argc, char **argv)
 		ret = read(fd, BUF, BUFF_SIZE);
 		tab = ft_bufcpy(BUF);
 		ft_errors(ret, BUF, tab);
-		ft_sub_trim(tab, BUF);
+		//ft_sub_trim(tab, BUF);
 		tab = ft_prepare_algo(tab, cd);
 		while (i < COTE)
 		{
