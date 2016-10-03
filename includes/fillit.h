@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/30 16:16:38 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:33:48 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 # define MAP cd->map
 # define COTE cd->cote
 # define BUF cd->buf
+# define TABCT tab[ct.i][ct.j]
+
+typedef struct	s_int
+{
+	int i;
+	int j;
+	int k;
+}				t_int;
 
 typedef struct	s_coord
 {
