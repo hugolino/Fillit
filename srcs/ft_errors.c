@@ -6,14 +6,12 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 10:15:42 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/22 11:25:20 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:52:39 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-/* Verification du nombre de dieses */
 
 int		ft_diese(char **tab, char *buf)
 {
@@ -43,8 +41,6 @@ int		ft_diese(char **tab, char *buf)
 	return (1);
 }
 
-/*Verification que tous les caracteres sont valides ('.' '#' '\n')*/
-
 int		ft_dot(char *buf)
 {
 	int i;
@@ -59,8 +55,6 @@ int		ft_dot(char *buf)
 	return (1);
 }
 
-/*Verification du bon nombre de ligne dans la piece*/
-
 int		ft_chrn(char *buf)
 {
 	int i;
@@ -70,7 +64,8 @@ int		ft_chrn(char *buf)
 	j = 0;
 	while (buf[i])
 	{
-		if ((buf[i] == '\n' && buf[i - 1] == '\n') || (buf[i] == '\n' && buf[i + 1] == '\0'))
+		if ((buf[i] == '\n' && buf[i - 1] == '\n') ||\
+		(buf[i] == '\n' && buf[i + 1] == '\0'))
 		{
 			if (buf[i] == '\n' && buf[i + 1] == '\0')
 			{
@@ -81,15 +76,13 @@ int		ft_chrn(char *buf)
 				return (0);
 		}
 		if (buf[i] == '\n' && j != 4)
-            j++;
+			j++;
 		if (buf[i] == '\n' && buf[i - 1] == '\n' && j == 4)
 			j = 0;
 		i++;
 	}
 	return (1);
 }
-
-/*Verification du bon nombre de colonne dans la piece*/
 
 int		ft_col(char *buf)
 {
@@ -115,8 +108,6 @@ int		ft_col(char *buf)
 	}
 	return (1);
 }
-
-/*Fonction regroupant les verifications*/
 
 int		ft_errors(int ret, char *buf, char **tab)
 {

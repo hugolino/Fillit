@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/22 15:42:11 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:34:47 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_is_square(char **tab, char *buf, int *pieces, int *found)
 {
 	int i;
 	int j;
-	
+
 	i = *pieces;
 	while ((tab[i][0] != '\n' && i < ft_countl(buf)) && *found == 0)
 	{

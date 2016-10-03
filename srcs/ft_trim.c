@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/22 15:40:57 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:50:47 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 {
- 	char	*trim;
+	char	*trim;
 	int		i;
 
 	i = 0;

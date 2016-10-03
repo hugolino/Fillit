@@ -6,13 +6,11 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 14:56:46 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/21 11:49:31 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:50:16 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/* Verification de la premiere ligne de la piece */
 
 int		ft_check_first(char **tab, int i)
 {
@@ -23,16 +21,9 @@ int		ft_check_first(char **tab, int i)
 	{
 		if (tab[i][j] == '#')
 		{
-			if (j == 0)
-			{
-				if (tab[i][j + 1] != '#' && tab[i + 1][j] != '#')
-					return (0);
-			}
-			else if (j == 3)
-			{
-				if (tab[i][j - 1] != '#' && tab[i + 1][j] != '#')
-					return (0);
-			}
+			if ((j == 0 && tab[i][j + 1] != '#' && tab[i + 1][j] != '#')\
+			|| (j == 3 && (tab[i][j - 1] != '#' && tab[i + 1][j] != '#')))
+				return (0);
 			else
 			{
 				if (tab[i][j + 1] != '#' && tab[i][j - 1] != '#' \
@@ -45,8 +36,6 @@ int		ft_check_first(char **tab, int i)
 	return (1);
 }
 
-/*Verification de la derniere ligne de la piece*/
-
 int		ft_check_last(char **tab, int i)
 {
 	int	j;
@@ -56,16 +45,9 @@ int		ft_check_last(char **tab, int i)
 	{
 		if (tab[i][j] == '#')
 		{
-			if (j == 0)
-			{
-				if (tab[i][j + 1] != '#' && tab[i - 1][j] != '#')
-					return (0);
-			}
-			else if (j == 3)
-			{
-				if (tab[i][j - 1] != '#' && tab[i - 1][j] != '#')
-					return (0);
-			}
+			if ((j == 0 && (tab[i][j + 1] != '#' && tab[i - 1][j] != '#'))\
+			|| (j == 3 && (tab[i][j - 1] != '#' && tab[i - 1][j] != '#')))
+				return (0);
 			else
 			{
 				if (tab[i][j + 1] != '#' && tab[i][j - 1] != '#' \
@@ -78,8 +60,6 @@ int		ft_check_last(char **tab, int i)
 	return (1);
 }
 
-/*Verification des autres lignes*/
-
 int		ft_check_lines(char **tab, int i)
 {
 	int	j;
@@ -89,18 +69,10 @@ int		ft_check_lines(char **tab, int i)
 	{
 		if (tab[i][j] == '#')
 		{
-			if (j == 0)
-			{
-				if (tab[i][j + 1] != '#' && tab[i - 1][j] != '#' \
-				&& tab[i + 1][j] != '#')
-					return (0);
-			}
-			else if (j == 3)
-			{
-				if (tab[i][j - 1] != '#' && tab[i - 1][j] != '#' \
-				&& tab[i + 1][j] != '#')
-					return (0);
-			}
+			if ((j == 0 && (tab[i][j + 1] != '#' && tab[i - 1][j] != '#' \
+			&& tab[i + 1][j] != '#')) || (j == 3 && (tab[i][j - 1] != '#'\
+			&& tab[i - 1][j] != '#' && tab[i + 1][j] != '#')))
+				return (0);
 			else
 			{
 				if (tab[i][j + 1] != '#' && tab[i][j - 1] != '#' \

@@ -6,14 +6,14 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/09/30 16:28:54 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/03 12:54:02 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-char	**ft_map_creator(size_t cotes)//Alloue en fonction de la taille voulue
+char	**ft_map_creator(size_t cotes)
 {
 	char	**map;
 	size_t	i;
@@ -41,7 +41,7 @@ char	**ft_map_creator(size_t cotes)//Alloue en fonction de la taille voulue
 	return (map);
 }
 
-void	ft_free_map(char **map, int cotes) //Free pour realloc et fin
+void	ft_free_map(char **map, int cotes)
 {
 	int i;
 
@@ -63,11 +63,12 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 	NB_P = (ft_countl(BUF) / 5);
 	printf("nb_p = %zd\n", NB_P);
 	MAP = ft_map_creator(COTE);
-	MAP = ft_resolve(cd, trim);
+	(void)trim;
+	//MAP = ft_resolve(cd, trim);
 	return (MAP);
 }
 
-/*char	**ft_resolve(t_coord *cd, char **trim)  NON FONCTIONNEL
+/*char	**ft_resolve(t_coord *cd, char **trim)
 {
 	Y_P = 0;
 	Y_M = 0;
