@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/04 11:57:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 13:09:16 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_map_creator(size_t cotes)
 	map = (char **)malloc(sizeof(char *) * (cotes));
 	while (i < cotes)
 	{
-		map[i] = (char *)malloc(sizeof(char) * (cotes + 1));
+		map[i] = (char *)malloc(sizeof(char) * (cotes) + 1);
 		i++;
 	}
 	i = 0;
@@ -35,7 +35,8 @@ char	**ft_map_creator(size_t cotes)
 			map[i][j] = '.';
 			j++;
 		}
-		map[i][j] = '\0';
+		map[i][j] = '\n';
+		map[i][j + 1] = '\0';
 		i++;
 	}
 	return (map);
@@ -58,7 +59,7 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 	X_M = 0;
 	Y_M = 0;
 	X_P = 0;
-	Y_P = 0;
+	Y_P = 1;
 	NB_P = (ft_countl(BUF) / 4);
 	LET = 'A';
 	MAP = ft_map_creator(COTE);
@@ -73,42 +74,51 @@ char	**ft_resolve(t_coord *cd, char **trim)
 	while (Y_M < COTE && trim[Y_P][0] != '0')
 	{
 		X_M = 0;
-		while (X_M < COTE && trim[Y_P][0] != '0')
+		while (X_M < COTE && trim[Y_P][0] != '0' && MAP[Y_M][X_M] != '\n')
 		{
-			if (trim[Y_P][0] == '\n')
+			if (trim[Y_P][0] == '\n' && Y_P != 0)
 			{
 				printf("NEXT PIECE\n");
 				LET++;
 				Y_P++;
 				X_P = 0;
-				printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n", Y_P, X_P, Y_M);
+				//printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
 				ft_resolve(cd, trim);
 			}
 			if (MAP[Y_M][X_M] == '.')
 			{
+				printf("JE RENTRE\n");
+				printf("trim = %c\n", trim[Y_P][X_P]);
 				if (trim[Y_P][X_P] == '#')
+				{
+					printf("CPY LET\n");
 					MAP[Y_M][X_M] = LET;
-				else if (trim[Y_P][X_P] == '\n')
-					MAP[Y_M][X_M] = trim[Y_P][X_P];
-				X_M++;
+					X_M++;
+				}
+					//else if (trim[Y_P][X_P] == '\n')
+				//	MAP[Y_M][X_M] = trim[Y_P][X_P];
 			}
-			else if (MAP[Y_M][X_M] == '#')
+			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
 			if (X_P < (ft_strlen(trim[Y_P]) - 1))
 				X_P++;
 			else
 			{
+				printf("Y_P++\n");
 				X_P = 0;
 				Y_P++;
+				X_M = 0;
+				Y_M++;
 			}
 		}
 		Y_M++;
 	}
-	if (X_M == COTE && Y_M == COTE)
+	if (X_M == COTE && Y_M == COTE && trim[Y_P][0] != '0')
 	{
+		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;
 		ft_prepare_algo(trim, cd);
 	}
-	printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n", Y_P, X_P, Y_M);
+	//printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
 	return (MAP);
 }

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/04 11:58:29 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 12:52:36 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		main(int argc, char **argv)
 		BUF = ft_sub_trim(tab, BUF);
 		tab = ft_bufcpy(BUF);
 		tab = ft_prepare_algo(tab, cd);
-		while (i < 8)
+		while (i < COTE)
 		{
 			printf("%s", tab[i]);
 			i++;
