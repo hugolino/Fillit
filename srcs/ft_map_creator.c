@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/04 13:09:16 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 13:19:03 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 	X_M = 0;
 	Y_M = 0;
 	X_P = 0;
-	Y_P = 1;
+	Y_P = 0;
 	NB_P = (ft_countl(BUF) / 4);
 	LET = 'A';
 	MAP = ft_map_creator(COTE);
@@ -71,6 +71,8 @@ char	**ft_resolve(t_coord *cd, char **trim)
 {
 	Y_M = 0;
 	printf("RESOLVE\n");
+	if (trim[Y_P][0] == '\n' && Y_P == 0)
+		Y_P++;
 	while (Y_M < COTE && trim[Y_P][0] != '0')
 	{
 		X_M = 0;
