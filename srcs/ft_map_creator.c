@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/03 15:28:20 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 11:20:30 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ char	**ft_map_creator(size_t cotes)
 	return (map);
 }
 
-void	ft_free_map(char **map, int cotes)
+void	ft_free_map(char **map, size_t cotes)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	while (i < cotes)
