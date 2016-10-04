@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/04 11:20:30 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 11:42:22 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ char	**ft_resolve(t_coord *cd, char **trim)
 {
 	Y_M = 0;
 	printf("RESOLVE\n");
-	while (Y_M <= COTE && (Y_P / 4) <= NB_P)
+	while (Y_M < COTE && trim[Y_P][0] != '0')
 	{
 		X_M = 0;
-		while (X_M <= COTE && (Y_P / 4) <= NB_P)
+		while (X_M < COTE && trim[Y_P][0] != '0')
 		{
 			if (trim[Y_P][0] == '\n')
 			{

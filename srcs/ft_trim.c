@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/03 12:50:47 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/04 11:51:21 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 	int		i;
 
 	i = 0;
-	trim = (char *)malloc(sizeof(char) * ft_strlen(buf));
+	trim = (char *)malloc(sizeof(char) * ft_strlen(buf) + 2);
 	ft_puttab(tab, buf);
-	while (*pieces < ft_countl(buf))
+	while (*pieces < ft_countl(buf) + 1)
 	{
 		*found = 0;
 		trim = ft_strcat(trim, ft_is_square(tab, buf, pieces, found));
@@ -35,7 +35,7 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;
 	}
-	printf("\ntrim = \n%s", trim);
+	trim = ft_strcat(trim, "0\n");
 	return (trim);
 }
 
