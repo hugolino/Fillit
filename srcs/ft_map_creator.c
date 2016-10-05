@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/05 12:38:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/05 12:56:59 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,13 @@ char	**ft_resolve(t_coord *cd, char **trim)
 			Y_M++;
 	}
 	printf("strlen YP = %zu\n", ft_strlen(trim[Y_P]));
-	if (ft_strlen(trim[Y_P])  >= COTE)
+	printf("trim[Y_P] = %c\n", trim[Y_P][X_P]);
+	if ((ft_strlen(trim[Y_P])  >= COTE) || (Y_M == COTE && trim[Y_P][0] == '\n'))
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;
-		ft_prepare_algo(trim, cd);
+		MAP = ft_map_creator(COTE);
+		ft_resolve(cd, trim);
 	}
 	//printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
 	return (MAP);
