@@ -34,7 +34,6 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;
 	}
-	trim = ft_strcat(trim, "0\n");
 	return (trim);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/05 12:56:59 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/05 13:17:18 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 
 char	**ft_resolve(t_coord *cd, char **trim)
 {
+int k = 0;
+while (k < 8)
+{
+	printf("trim : %s", trim[k]);
+	k++;
+}
 	Y_M = 0;
 	printf("RESOLVE\n");
 	if (trim[Y_P][0] == '\n' && Y_P == 0)
@@ -84,13 +90,12 @@ char	**ft_resolve(t_coord *cd, char **trim)
 				LET++;
 				Y_P++;
 				X_P = 0;
-				//printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
+				printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
 				ft_resolve(cd, trim);
 			}
 			if (MAP[Y_M][X_M] == '.')
 			{
 				printf("JE RENTRE\n");
-				printf("trim = %c\n", trim[Y_P][X_P]);
 				if (MAP[Y_M][X_M] == '.' && trim[Y_P][X_P] != '\n')
 				{
 					printf("CPY LET\n");
@@ -127,7 +132,7 @@ char	**ft_resolve(t_coord *cd, char **trim)
 	}
 	printf("strlen YP = %zu\n", ft_strlen(trim[Y_P]));
 	printf("trim[Y_P] = %c\n", trim[Y_P][X_P]);
-	if ((ft_strlen(trim[Y_P])  >= COTE) || (Y_M == COTE && trim[Y_P][0] == '\n'))
+	if (trim[Y_P][0] != '0' && ((ft_strlen(trim[Y_P])  >= COTE) || (Y_M == COTE && trim[Y_P][0] == '\n')))
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;

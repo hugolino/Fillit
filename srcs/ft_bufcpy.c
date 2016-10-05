@@ -88,6 +88,6 @@ char		**ft_bufcpy(char *buf)
 		TABCT = '\0';
 		ct.i++;
 	}
-	tab[ct.i][0] = '\n';
+	tab[ct.i][0] = '0';
 	return (tab);
 }
