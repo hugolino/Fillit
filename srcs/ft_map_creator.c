@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/05 11:16:42 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/05 12:01:37 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_resolve(t_coord *cd, char **trim)
 	while (Y_M < COTE && trim[Y_P][0] != '0')
 	{
 		X_M = 0;
-		while (X_M < COTE && trim[Y_P][0] != '0' && MAP[Y_M][X_M] != '\n')
+		while (X_M < COTE && trim[Y_P][0] != '0'  && Y_M < COTE)
 		{
 			if (trim[Y_P][0] == '\n' && Y_P != 0)
 			{
@@ -91,10 +91,13 @@ char	**ft_resolve(t_coord *cd, char **trim)
 			{
 				printf("JE RENTRE\n");
 				printf("trim = %c\n", trim[Y_P][X_P]);
-				if (trim[Y_P][X_P] == '#')
+				if (MAP[Y_M][X_M] == '.' && trim[Y_P][X_P] != '\n')
 				{
 					printf("CPY LET\n");
-					MAP[Y_M][X_M] = LET;
+					if (trim[Y_P][X_P] == '#')
+						MAP[Y_M][X_M] = LET;
+					else
+						MAP[Y_M][X_M] = '.';
 					X_M++;
 				}
 					//else if (trim[Y_P][X_P] == '\n')
@@ -106,17 +109,21 @@ char	**ft_resolve(t_coord *cd, char **trim)
 				X_P++;
 			else
 			{
-				printf("Y_P++\n");
+				printf("X_P = %zu\n", X_P);
 				X_P = 0;
 				Y_P++;
+				printf("Y_P++ = %zu\n", Y_P);
+				printf("trim[Y_P][0] = %c\n", trim[Y_P][0]);
 				X_M = 0;
 				Y_M++;
+				printf("Y_M = %zu\n", Y_M);
+				printf("COTE = %zu\n", COTE);
 			}
 		}
-		if (Y_M + 1 < COTE)
+		if (Y_M < COTE)
 			Y_M++;
 	}
-	if (X_M == COTE && Y_M == COTE && trim[Y_P][0] != '0')
+	if (Y_M == COTE && ft_strlen(trim[Y_P]) - 1 > COTE && trim[Y_P][0] != '0')
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;
