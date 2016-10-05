@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/05 14:06:58 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/05 15:39:43 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ char	**ft_prepare_algo(char **trim, t_coord *cd)
 
 char	**ft_resolve(t_coord *cd, char **trim)
 {
-int k = 0;
-while (k < 8)
-{
-	printf("trim : %s", trim[k]);
-	k++;
-}
 	Y_M = 0;
 	printf("RESOLVE\n");
 	if (trim[Y_P][0] == '\n' && Y_P == 0)
@@ -98,23 +92,30 @@ while (k < 8)
 				printf("JE RENTRE\n");
 				printf("X_P, Y_P : %zu, %zu\n", X_P, Y_P);
 				printf("X_M, Y_M : %zu, %zu\n", X_M, Y_M);
-				sleep(1);
+				//sleep(1);
 				if (MAP[Y_M][X_M] == '.' && trim[Y_P][X_P] != '\n')
 				{
-					printf("CPY LET\n");
+					printf("CPY LET, trim = %c\n", trim[Y_P][X_P]);
 					if (trim[Y_P][X_P] == '#')
 						MAP[Y_M][X_M] = LET;
 					else
 						MAP[Y_M][X_M] = '.';
-					X_M++;
+					X_P++;
+					if (X_M + 1 >= COTE)
+					{
+						X_M = 0;
+						Y_M++;
+					}
+					else
+						X_M++;
 				}
 					else if (trim[Y_P][X_P] == '\n')
-					break ;
+						break ;
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
-			if (X_P < (ft_strlen(trim[Y_P]) - 1))
-				X_P++;
+		//	if (X_P < (ft_strlen(trim[Y_P]) - 1))
+		//		X_P++;
 			/*else
 			{
 				printf("X_P = %zu\n", X_P);
@@ -141,12 +142,13 @@ while (k < 8)
 		COTE++;
 		X_P = 0;
 		Y_P = 0;
+		LET = 'A';
 		MAP = ft_map_creator(COTE);
 		ft_resolve(cd, trim);
 	}
 	printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
-	k = 0;
-	while (k < 3)
+	size_t k = 0;
+	while (k < COTE)
 {
 	printf("%s", MAP[k]);
 	k++;
