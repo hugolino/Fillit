@@ -40,7 +40,7 @@ int		main(int argc, char **argv)
 			printf("%s", tab[i]);
 			i++;
 		}
-		ft_free_map(tab, COTE);
+      		ft_free_map(tab, COTE);
 	}
 	return (0);
 }

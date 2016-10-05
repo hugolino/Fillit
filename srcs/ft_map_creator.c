@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/05 13:17:18 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/05 14:06:58 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ while (k < 8)
 	while (Y_M < COTE && trim[Y_P][0] != '0')
 	{
 		X_M = 0;
-		while (X_M < COTE && trim[Y_P][0] != '0' && trim[Y_P])
+		while (X_M < COTE && trim[Y_P][0] != '0' && X_P < ft_strlen(trim[Y_P]))
 		{
 			if (trim[Y_P][0] == '\n' && Y_P != 0)
 			{
@@ -96,6 +96,9 @@ while (k < 8)
 			if (MAP[Y_M][X_M] == '.')
 			{
 				printf("JE RENTRE\n");
+				printf("X_P, Y_P : %zu, %zu\n", X_P, Y_P);
+				printf("X_M, Y_M : %zu, %zu\n", X_M, Y_M);
+				sleep(1);
 				if (MAP[Y_M][X_M] == '.' && trim[Y_P][X_P] != '\n')
 				{
 					printf("CPY LET\n");
@@ -105,8 +108,8 @@ while (k < 8)
 						MAP[Y_M][X_M] = '.';
 					X_M++;
 				}
-					//else if (trim[Y_P][X_P] == '\n')
-				//	MAP[Y_M][X_M] = trim[Y_P][X_P];
+					else if (trim[Y_P][X_P] == '\n')
+					break ;
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
@@ -132,13 +135,21 @@ while (k < 8)
 	}
 	printf("strlen YP = %zu\n", ft_strlen(trim[Y_P]));
 	printf("trim[Y_P] = %c\n", trim[Y_P][X_P]);
-	if (trim[Y_P][0] != '0' && ((ft_strlen(trim[Y_P])  >= COTE) || (Y_M == COTE && trim[Y_P][0] == '\n')))
+	if (trim[Y_P][0] != '0' && ((ft_strlen(trim[Y_P]) + X_M  >= COTE) || (Y_M == COTE && trim[Y_P][0] == '\n')))
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;
+		X_P = 0;
+		Y_P = 0;
 		MAP = ft_map_creator(COTE);
 		ft_resolve(cd, trim);
 	}
-	//printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
+	printf("RETOUR :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
+	k = 0;
+	while (k < 3)
+{
+	printf("%s", MAP[k]);
+	k++;
+}
 	return (MAP);
 }
