@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/04 12:52:36 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/06 11:16:51 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ int		main(int argc, char **argv)
 		ft_errors(ret, BUF, tab);
 		BUF = ft_sub_trim(tab, BUF);
 		tab = ft_bufcpy(BUF);
-		tab = ft_prepare_algo(tab, cd);
+		ft_prepare_algo(tab, cd);
 		while (i < COTE)
 		{
-			printf("%s", tab[i]);
+			printf("BLE\n");
+			printf("%s", MAP[i]);
 			i++;
 		}
-      		ft_free_map(tab, COTE);
+      		//ft_free_map(tab, COTE);
 	}
 	return (0);
 }
