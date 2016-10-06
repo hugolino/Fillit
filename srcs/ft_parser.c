@@ -53,3 +53,35 @@ char	*ft_test_t(char **tab, char *buf, int *pieces, int *found)
 		trim = "\n.#.\n###\n";
 	return (trim);
 }
+
+int	ft_hash(char *str, size_t n)
+{
+	int i;
+	int a;
+
+	i = n;
+	a = 0;
+	while (str[i])
+	{
+	if (str[i] == '#')
+		a++;
+	i++;
+	}
+	return (a);
+}
+
+int	ft_dota(char *str, size_t n)
+{
+  int i;
+  int d;
+
+  i = n;
+  d = 0;
+  while (str[i])
+    {
+      if (str[i] == '.')
+	d++;
+      i++;
+    }
+  return (d);
+}

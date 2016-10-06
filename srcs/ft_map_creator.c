@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/06 13:08:24 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/06 15:50:17 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	ft_prepare_algo(t_coord *cd)
 
 void	ft_resolve(t_coord *cd)
 {
+	int increase;
+	int copy;
 	Y_M = 0;
 	printf("RESOLVE\n");
 	if (TAB[Y_P][0] == '\n' && Y_P == 0)
@@ -77,6 +79,8 @@ void	ft_resolve(t_coord *cd)
 		X_M = 0;
 		while (X_M < COTE && TAB[Y_P][X_P] != '0' && X_P < ft_strlen(TAB[Y_P]))
 		{
+			copy = 0;
+			increase = 0;
 			printf("Y_P = %zu, X_P = %zu\n", Y_P, X_P);
 			printf("Y_M = %zu, X_M = %zu\n", Y_M, X_M);
 			printf("TAB[%zu][%zu] = %c\n", Y_P, X_P, TAB[Y_P][X_P]);
@@ -99,19 +103,31 @@ void	ft_resolve(t_coord *cd)
 				//sleep(1);
 				if (MAP[Y_M][X_M] == '.' && TAB[Y_P][X_P] != '\n' && TAB[Y_P][X_P] != '0')
 				{
-					printf("CPY LET, trim = %c\n", TAB[Y_P][X_P]);
-					if (TAB[Y_P][X_P] == '#')
-						MAP[Y_M][X_M] = LET;
-					else
-						MAP[Y_M][X_M] = '.';
-					if (X_P + 1 == ft_strlen(TAB[Y_P]))
+					if (ft_dota(MAP[Y_M], X_M) >= ft_hash(TAB[Y_P], X_P))
 					{
+						printf("CPY LET, trim = %c\n", TAB[Y_P][X_P]);					
+						if (TAB[Y_P][X_P] == '#')
+						{
+							MAP[Y_M][X_M] = LET;
+							//copy = 1;
+						}
+						else
+							MAP[Y_M][X_M] = '.';
+						copy = 1;
+					}
+					if (X_P + 1 == ft_strlen(TAB[Y_P]) && increase == 0 && copy == 1)
+					{
+						increase = 1;
 						X_P = 0;
 						Y_P++;
 					}
 					else
-						X_P++;
-					if (X_M + 1 >= COTE && Y_M + 1 < COTE)
+					{
+						if (copy == 1)
+							X_P++;
+						printf("JVIENS DINCREMENTER XP\n");
+					}
+					if (X_M + 1 >= COTE && Y_M + 1 < COTE && increase == 1)
 					{
 						X_M = 0;
 						Y_M++;
@@ -119,26 +135,29 @@ void	ft_resolve(t_coord *cd)
 					else
 						X_M++;
 				}
-					else if (TAB[Y_P][X_P] == '\n')
-						break ;
+				else if (TAB[Y_P][X_P] == '\n')
+					break ;
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
 		}
-		if (TAB[Y_P][X_P] != '0')
+		if (TAB[Y_P][X_P] != '0' && increase == 0 && X_P == ft_strlen(TAB[Y_P]) - 1)
 		{
+			printf("merdum\n");
 			X_P = 0;
 			Y_P++;
+			increase = 1;
 		}
-		if (Y_M + 1 < COTE)
+		if ((X_M == COTE) || (Y_M + 1 < COTE && increase == 1/*TAB[Y_P - 1][3] != '\n'*/))
 			Y_M++;
 	}
 	printf("strlen YP = %zu\n", ft_strlen(TAB[Y_P]));
 	printf("TAB[Y_P] = %c\n", TAB[Y_P][X_P]);
-	if ((X_P > COTE) || (TAB[Y_P][X_P] != '0' && ((ft_strlen(TAB[Y_P]) + X_M  >= COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n')))
+	if (((ft_strlen(TAB[Y_P - 1]) - 1 > COTE) && TAB[Y_P][X_P] == '0') || (TAB[Y_P][X_P] != '0' && (ft_strlen(TAB[Y_P - 1])  > COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n'))
+		/*if (ft_strlen(TAB[Y_P - 1]) > COTE && TAB[Y_P][X_P] == '0')*/
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
-		COTE++;
+		COTE++;// = ft_strlen(TAB[Y_P - 1]) - 1;
 		X_P = 0;
 		Y_P = 0;
 		LET = 'A';

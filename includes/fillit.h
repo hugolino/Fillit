@@ -115,6 +115,8 @@ char			*ft_sub_trim(char **tab, char *buf);
 
 char			*ft_test_l(char **tab, char *buf, int *pieces, int *found);
 char			*ft_test_t(char **tab, char *buf, int *pieces, int *found);
+int			ft_hash(char *str, size_t n);
+int			ft_dota(char *str, size_t n);
 
 /* ft_map_creator.c */
 
