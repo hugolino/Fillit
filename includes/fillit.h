@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/06 11:16:41 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/06 11:41:22 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define Y_P cd->y_p
 # define NB_P cd->nb_p
 # define MAP cd->map
+# define TAB cd->tab
 # define COTE cd->cote
 # define BUF cd->buf
 # define TABCT tab[ct.i][ct.j]
@@ -46,6 +47,7 @@ typedef struct	s_coord
 	size_t	nb_p;
 	size_t	cote;
 	char	*buf;
+	char	**tab;
 	char	**map;
 	char	letter;
 }				t_coord;
@@ -118,7 +120,7 @@ char			*ft_test_t(char **tab, char *buf, int *pieces, int *found);
 
 char			**ft_map_creator(size_t cotes);
 void			ft_free_map(char **map, size_t cotes);
-void			ft_prepare_algo(char **trim, t_coord *cd);
-void			ft_resolve(t_coord *cd, char **trim);
+void			ft_prepare_algo(t_coord *cd);
+void			ft_resolve(t_coord *cd);
 
 #endif

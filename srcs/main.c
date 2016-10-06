@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/06 11:16:51 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/06 11:41:20 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int		main(int argc, char **argv)
 {
-	char	**tab;
 	int		fd;
 	int		ret;
 	t_coord	*cd;
@@ -24,20 +23,19 @@ int		main(int argc, char **argv)
 	i = 0;
 	cd = (t_coord *)malloc(sizeof(t_coord));
 	COTE = 2;
-	tab = NULL;
+	TAB = NULL;
 	BUF = (char *)malloc(sizeof(char) * BUFF_SIZE);
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
 		ret = read(fd, BUF, BUFF_SIZE);
-		tab = ft_bufcpy(BUF);
-		ft_errors(ret, BUF, tab);
-		BUF = ft_sub_trim(tab, BUF);
-		tab = ft_bufcpy(BUF);
-		ft_prepare_algo(tab, cd);
+		TAB = ft_bufcpy(BUF);
+		ft_errors(ret, BUF, TAB);
+		BUF = ft_sub_trim(TAB, BUF);
+		TAB = ft_bufcpy(BUF);
+		ft_prepare_algo(cd);
 		while (i < COTE)
 		{
-			printf("BLE\n");
 			printf("%s", MAP[i]);
 			i++;
 		}
