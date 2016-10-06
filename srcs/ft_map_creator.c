@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/06 11:40:36 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/06 13:08:24 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void	ft_resolve(t_coord *cd)
 		X_M = 0;
 		while (X_M < COTE && TAB[Y_P][X_P] != '0' && X_P < ft_strlen(TAB[Y_P]))
 		{
+			printf("Y_P = %zu, X_P = %zu\n", Y_P, X_P);
+			printf("Y_M = %zu, X_M = %zu\n", Y_M, X_M);
+			printf("TAB[%zu][%zu] = %c\n", Y_P, X_P, TAB[Y_P][X_P]);
+			printf("MAP[%zu][%zu] = %c\n", Y_M, X_M, MAP[Y_M][X_M]);
 			if (TAB[Y_P][0] == '\n' && Y_P != 0)
 			{
 				printf("NEXT PIECE\n");
@@ -90,8 +94,8 @@ void	ft_resolve(t_coord *cd)
 			if (MAP[Y_M][X_M] == '.' && TAB[Y_P][X_P] != '0')
 			{
 				printf("JE RENTRE\n");
-				printf("X_P, Y_P : %zu, %zu\n", X_P, Y_P);
-				printf("X_M, Y_M : %zu, %zu\n", X_M, Y_M);
+				//printf("X_P, Y_P : %zu, %zu\n", X_P, Y_P);
+				//printf("X_M, Y_M : %zu, %zu\n", X_M, Y_M);
 				//sleep(1);
 				if (MAP[Y_M][X_M] == '.' && TAB[Y_P][X_P] != '\n' && TAB[Y_P][X_P] != '0')
 				{
@@ -100,8 +104,14 @@ void	ft_resolve(t_coord *cd)
 						MAP[Y_M][X_M] = LET;
 					else
 						MAP[Y_M][X_M] = '.';
-					X_P++;
-					if (X_M + 1 >= COTE)
+					if (X_P + 1 == ft_strlen(TAB[Y_P]))
+					{
+						X_P = 0;
+						Y_P++;
+					}
+					else
+						X_P++;
+					if (X_M + 1 >= COTE && Y_M + 1 < COTE)
 					{
 						X_M = 0;
 						Y_M++;
@@ -114,32 +124,18 @@ void	ft_resolve(t_coord *cd)
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
-		//	if (X_P < (ft_strlen(trim[Y_P]) - 1))
-		//		X_P++;
-			/*else
-			{
-				printf("X_P = %zu\n", X_P);
-				X_P = 0;
-				Y_P++;
-				printf("Y_P++ = %zu\n", Y_P);
-				printf("trim[Y_P][0] = %c\n", trim[Y_P][0]);
-				X_M = 0;
-				Y_M++;
-				printf("Y_M = %zu\n", Y_M);
-				printf("COTE = %zu\n", COTE);
-			}*/
 		}
 		if (TAB[Y_P][X_P] != '0')
 		{
 			X_P = 0;
 			Y_P++;
 		}
-		if (Y_M < COTE)
+		if (Y_M + 1 < COTE)
 			Y_M++;
 	}
 	printf("strlen YP = %zu\n", ft_strlen(TAB[Y_P]));
 	printf("TAB[Y_P] = %c\n", TAB[Y_P][X_P]);
-	if (TAB[Y_P][X_P] != '0' && ((ft_strlen(TAB[Y_P]) + X_M  >= COTE) || (Y_M == COTE && TAB[Y_P][0] == '\n')))
+	if ((X_P > COTE) || (TAB[Y_P][X_P] != '0' && ((ft_strlen(TAB[Y_P]) + X_M  >= COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n')))
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;
@@ -149,5 +145,6 @@ void	ft_resolve(t_coord *cd)
 		MAP = ft_map_creator(COTE);
 		ft_resolve(cd);
 	}
+	printf("END\n");
 	return ;
 }
