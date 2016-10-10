@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/06 11:41:22 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/10 13:49:07 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct	s_coord
 	size_t	y_p;
 	size_t	nb_p;
 	size_t	cote;
+	size_t	nb_l;
 	char	*buf;
 	char	**tab;
 	char	**map;
@@ -62,7 +63,7 @@ int				ft_diese(char **tab, char *buf);
 
 /* ft_bufcpy.c */
 
-char			**ft_bufcpy(char *buf);
+char			**ft_bufcpy(char *buf, t_coord *cd);
 int				ft_countl(char *buf);
 void			ft_putstr(char const *str);
 void			ft_puttab(char **tab, char *buf);
@@ -110,6 +111,7 @@ char			*ft_is_t_up(char **tab, char *buf, int *pieces, int *found);
 
 char			*ft_trim(char **tab, char *buf, int *pieces, int *found);
 char			*ft_sub_trim(char **tab, char *buf);
+void			ft_count_pieces(t_coord *cd);
 
 /* ft_parser.c */
 

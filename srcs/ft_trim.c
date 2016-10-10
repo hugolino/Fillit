@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/04 12:26:40 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/10 13:43:23 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,20 @@ char	*ft_sub_trim(char **tab, char *buf)
 	found = (int *)malloc(sizeof(int));
 	trim = ft_trim(tab, buf, pieces, found);
 	return (trim);
+}
+
+void	ft_count_pieces(t_coord *cd)
+{
+	size_t i;
+	size_t nb;
+
+	i = 0;
+	nb = 0;
+	while (BUF[i])
+	{
+		if (BUF[i] == '\n' && BUF[i - 1] == '\n')
+			nb++;
+		i++;
+	}
+	NB_P = nb + 1;
 }

@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/06 15:50:17 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/10 13:49:10 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,7 @@ void	ft_resolve(t_coord *cd)
 	}
 	printf("strlen YP = %zu\n", ft_strlen(TAB[Y_P]));
 	printf("TAB[Y_P] = %c\n", TAB[Y_P][X_P]);
-	if (((ft_strlen(TAB[Y_P - 1]) - 1 > COTE) && TAB[Y_P][X_P] == '0') || (TAB[Y_P][X_P] != '0' && (ft_strlen(TAB[Y_P - 1])  > COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n'))
-		/*if (ft_strlen(TAB[Y_P - 1]) > COTE && TAB[Y_P][X_P] == '0')*/
+	if (((ft_strlen(TAB[Y_P - 1]) - 1 > COTE) && TAB[Y_P][X_P] == '0') || (TAB[Y_P][X_P] != '0' && TAB[Y_P][X_P] != '\n' && (ft_strlen(TAB[Y_P - 1])  > COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n') || (Y_P != cd->nb_l))
 	{
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		COTE++;// = ft_strlen(TAB[Y_P - 1]) - 1;
