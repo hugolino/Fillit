@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/10 13:49:10 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 20:08:23 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,47 @@ void	ft_free_map(char **map, size_t cotes)
 	}
 }
 
+void	ft_place_tetri(t_coord *cd)
+{
+	int		count;
+
+	count = 0;
+	X_FIRST = X_P;
+	Y_FIRST = Y_P;
+	SAVE = ft_cpy_tab(MAP, cd);
+	while (count < 4 && TAB[Y_P][0] != '0')
+	{
+		if (NEWYM >= COTE)
+		{
+			MAP = SAVE;
+			Y_P = Y_FIRST;
+			X_P = X_FIRST;
+			return ;
+		}
+		while (TAB[Y_P][X_P]  && count < 4)
+		{
+			if (TAB[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
+			{
+				MAP[NEWYM][NEWXM] = LET;
+				count++;
+			}
+			else if ((TAB[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] != '.'))
+			{
+				X_P = X_FIRST;
+				Y_P = Y_FIRST;
+				MAP = SAVE;
+				return ;
+			}
+			X_P++;
+		}
+		Y_P++;
+		X_P = 0;
+	}
+	LET++;
+	Y_M = NEWYM;
+	X_M = NEWXM;
+}
+
 void	ft_prepare_algo(t_coord *cd)
 {
 	X_M = 0;
@@ -68,101 +109,56 @@ void	ft_prepare_algo(t_coord *cd)
 
 void	ft_resolve(t_coord *cd)
 {
-	int increase;
-	int copy;
 	Y_M = 0;
-	printf("RESOLVE\n");
-	if (TAB[Y_P][0] == '\n' && Y_P == 0)
+	if (TABP == '\n' && Y_P == 0)
 		Y_P++;
-	while (Y_M < COTE && TAB[Y_P][X_P] != '0')
+	while (Y_M < COTE)
 	{
 		X_M = 0;
-		while (X_M < COTE && TAB[Y_P][X_P] != '0' && X_P < ft_strlen(TAB[Y_P]))
+		while (Y_M < COTE && X_M < COTE)
 		{
-			copy = 0;
-			increase = 0;
-			printf("Y_P = %zu, X_P = %zu\n", Y_P, X_P);
-			printf("Y_M = %zu, X_M = %zu\n", Y_M, X_M);
-			printf("TAB[%zu][%zu] = %c\n", Y_P, X_P, TAB[Y_P][X_P]);
-			printf("MAP[%zu][%zu] = %c\n", Y_M, X_M, MAP[Y_M][X_M]);
-			if (TAB[Y_P][0] == '\n' && Y_P != 0)
+			if (TABP == '\n' && Y_P != 0)
 			{
-				printf("NEXT PIECE\n");
-				LET++;
 				Y_P++;
 				X_P = 0;
-				printf("Recursive :\n Y_P = %zu\n X_P = %zu\n Y_M = %zu\n X_M = %zu\n", Y_P, X_P, Y_M, X_M);
 				ft_resolve(cd);
 				return ;
 			}
-			if (MAP[Y_M][X_M] == '.' && TAB[Y_P][X_P] != '0')
+			if (MAP[Y_M][X_M] == '.' && TABP != '0')
 			{
-				printf("JE RENTRE\n");
-				//printf("X_P, Y_P : %zu, %zu\n", X_P, Y_P);
-				//printf("X_M, Y_M : %zu, %zu\n", X_M, Y_M);
-				//sleep(1);
-				if (MAP[Y_M][X_M] == '.' && TAB[Y_P][X_P] != '\n' && TAB[Y_P][X_P] != '0')
-				{
 					if (ft_dota(MAP[Y_M], X_M) >= ft_hash(TAB[Y_P], X_P))
-					{
-						printf("CPY LET, trim = %c\n", TAB[Y_P][X_P]);					
-						if (TAB[Y_P][X_P] == '#')
-						{
-							MAP[Y_M][X_M] = LET;
-							//copy = 1;
-						}
-						else
-							MAP[Y_M][X_M] = '.';
-						copy = 1;
-					}
-					if (X_P + 1 == ft_strlen(TAB[Y_P]) && increase == 0 && copy == 1)
-					{
-						increase = 1;
-						X_P = 0;
-						Y_P++;
-					}
-					else
-					{
-						if (copy == 1)
-							X_P++;
-						printf("JVIENS DINCREMENTER XP\n");
-					}
-					if (X_M + 1 >= COTE && Y_M + 1 < COTE && increase == 1)
+						if (TABP == '#')
+							ft_place_tetri(cd);
+					if (TABP == '.')
+						X_P++;
+					if (X_M + 1 >= COTE && Y_M + 1 < COTE)
 					{
 						X_M = 0;
 						Y_M++;
 					}
 					else
 						X_M++;
-				}
-				else if (TAB[Y_P][X_P] == '\n')
-					break ;
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
 		}
-		if (TAB[Y_P][X_P] != '0' && increase == 0 && X_P == ft_strlen(TAB[Y_P]) - 1)
+		if (TABP != '0' && X_P == ft_strlen(TAB[Y_P]) - 1)
 		{
-			printf("merdum\n");
 			X_P = 0;
 			Y_P++;
-			increase = 1;
 		}
-		if ((X_M == COTE) || (Y_M + 1 < COTE && increase == 1/*TAB[Y_P - 1][3] != '\n'*/))
+		if ((X_M == COTE) || (Y_M + 1 < COTE))
 			Y_M++;
 	}
-	printf("strlen YP = %zu\n", ft_strlen(TAB[Y_P]));
-	printf("TAB[Y_P] = %c\n", TAB[Y_P][X_P]);
-	if (((ft_strlen(TAB[Y_P - 1]) - 1 > COTE) && TAB[Y_P][X_P] == '0') || (TAB[Y_P][X_P] != '0' && TAB[Y_P][X_P] != '\n' && (ft_strlen(TAB[Y_P - 1])  > COTE)) || (Y_M + 1 == COTE && TAB[Y_P][0] == '\n') || (Y_P != cd->nb_l))
+	if (Y_P != NB_L)
 	{
+		COTE++;
 		printf("BIGGER MAP, COTE = %zu\n", COTE);
-		COTE++;// = ft_strlen(TAB[Y_P - 1]) - 1;
 		X_P = 0;
 		Y_P = 0;
 		LET = 'A';
 		MAP = ft_map_creator(COTE);
 		ft_resolve(cd);
 	}
-	printf("END\n");
 	return ;
 }

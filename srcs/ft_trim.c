@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/10 13:43:23 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 18:02:30 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,20 @@ void	ft_count_pieces(t_coord *cd)
 		i++;
 	}
 	NB_P = nb + 1;
+}
+
+char	**ft_cpy_tab(char **tab2, t_coord *cd)
+{
+	char	**tab1;
+	size_t	y;
+
+	y = 0;
+	tab1 = (char **)malloc(sizeof(char *) * COTE);
+	while (y < COTE)
+	{
+		tab1[y] = (char *)malloc(sizeof(char) * COTE);
+		ft_strcpy(tab1[y], tab2[y]);
+		y++;
+	}
+	return (tab1);
 }

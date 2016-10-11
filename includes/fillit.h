@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/10 13:49:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 19:26:02 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,19 @@
 # define X_P cd->x_p
 # define Y_P cd->y_p
 # define NB_P cd->nb_p
+# define NB_L cd->nb_l
 # define MAP cd->map
 # define TAB cd->tab
+# define TABP TAB[Y_P][X_P]
 # define COTE cd->cote
 # define BUF cd->buf
 # define TABCT tab[ct.i][ct.j]
 # define LET cd->letter
+# define X_FIRST cd->x_first
+# define Y_FIRST cd->y_first
+# define NEWYM Y_M + (Y_P - Y_FIRST)
+# define NEWXM X_M + (X_P - X_FIRST)
+# define SAVE cd->savemap
 
 typedef struct	s_int
 {
@@ -47,9 +54,12 @@ typedef struct	s_coord
 	size_t	nb_p;
 	size_t	cote;
 	size_t	nb_l;
+	size_t	x_first;
+	size_t	y_first;
 	char	*buf;
 	char	**tab;
 	char	**map;
+	char	**savemap;
 	char	letter;
 }				t_coord;
 
@@ -112,6 +122,7 @@ char			*ft_is_t_up(char **tab, char *buf, int *pieces, int *found);
 char			*ft_trim(char **tab, char *buf, int *pieces, int *found);
 char			*ft_sub_trim(char **tab, char *buf);
 void			ft_count_pieces(t_coord *cd);
+char			**ft_cpy_tab(char **tab2, t_coord *cd);
 
 /* ft_parser.c */
 
@@ -124,6 +135,7 @@ int			ft_dota(char *str, size_t n);
 
 char			**ft_map_creator(size_t cotes);
 void			ft_free_map(char **map, size_t cotes);
+void			ft_place_tetri(t_coord *cd);
 void			ft_prepare_algo(t_coord *cd);
 void			ft_resolve(t_coord *cd);
 
