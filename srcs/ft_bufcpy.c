@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 13:25:50 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/11 18:00:20 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 20:42:54 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ char		**ft_bufcpy(char *buf, t_coord *cd)
 		ct.i++;
 	}
 	tab[ct.i][0] = '0';
-	cd->nb_l = ct.i;
+	NB_L = ct.i;
 	return (tab);
 }
