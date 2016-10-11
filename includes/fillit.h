@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/11 19:26:02 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 21:37:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ int			ft_dota(char *str, size_t n);
 /* ft_map_creator.c */
 
 char			**ft_map_creator(size_t cotes);
-void			ft_free_map(char **map, size_t cotes);
 void			ft_place_tetri(t_coord *cd);
 void			ft_prepare_algo(t_coord *cd);
 void			ft_resolve(t_coord *cd);

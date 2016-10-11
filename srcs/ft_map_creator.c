@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/11 20:40:09 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 21:37:19 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,6 @@ char	**ft_map_creator(size_t cotes)
 		i++;
 	}
 	return (map);
-}
-
-void	ft_free_map(char **map, size_t cotes)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < cotes)
-	{
-		free(map[i]);
-		i++;
-	}
 }
 
 void	ft_place_tetri(t_coord *cd)
