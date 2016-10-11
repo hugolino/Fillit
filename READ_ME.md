@@ -17,6 +17,8 @@ Pour ça, j'ai créé une fonction (<i>ft_cpy_tab</i>) qui est dans <b>ft_trim.c
 
 Du coup, la fonction <i>ft_place_tetri</i> avance aussi dans la map donc j'ai pu supprimer plein de trucs dans <i>ft_resolve</i>, elle fait plus que <b>54 lignes</b>! Par contre, <i>ft_place_tetri</i> fait <b>37 lignes</b> donc faudra équilibrer!
 
+La fonction <i>ft_free_map</i> a viré, parce que maintenant on free directement la variable <i>cd</i> (dans <b>main.c</b>) qui contient tout le bouzin donc il reste plus rien <b>(Je sais pas trop comment on free une structure, ça se trouve ça free que le pointeur donc faudra p'têtre revoir ça)</b>.
+
 Du coup faut trouver une méthode qui fait qu'on peut changer l'ordre des pièces et après on est good!
 
 Profite bien :)
