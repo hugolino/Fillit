@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/11 20:08:23 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/11 20:38:17 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,10 @@ void	ft_resolve(t_coord *cd)
 	Y_M = 0;
 	if (TABP == '\n' && Y_P == 0)
 		Y_P++;
-	while (Y_M < COTE)
+	while (Y_M < COTE && TABP != '0')
 	{
 		X_M = 0;
-		while (Y_M < COTE && X_M < COTE)
+		while (Y_M < COTE && X_M < COTE && TABP != '0' && X_P < ft_strlen(TAB[Y_P]))
 		{
 			if (TABP == '\n' && Y_P != 0)
 			{
@@ -126,6 +126,8 @@ void	ft_resolve(t_coord *cd)
 			}
 			if (MAP[Y_M][X_M] == '.' && TABP != '0')
 			{
+				if (MAP[Y_M][X_M] == '.' && TABP != '\n' && TABP != '0')
+				{
 					if (ft_dota(MAP[Y_M], X_M) >= ft_hash(TAB[Y_P], X_P))
 						if (TABP == '#')
 							ft_place_tetri(cd);
@@ -138,6 +140,7 @@ void	ft_resolve(t_coord *cd)
 					}
 					else
 						X_M++;
+				}
 			}
 			else if (MAP[Y_M][X_M] >= 'A' && MAP[Y_M][X_M] <= 'Z')
 				X_M++;
@@ -153,7 +156,6 @@ void	ft_resolve(t_coord *cd)
 	if (Y_P != NB_L)
 	{
 		COTE++;
-		printf("BIGGER MAP, COTE = %zu\n", COTE);
 		X_P = 0;
 		Y_P = 0;
 		LET = 'A';
