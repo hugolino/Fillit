@@ -11,6 +11,8 @@ J'ai créé une fonction (<i>ft_place_tetri</i>) dans <b>ft_map_creator.c</b> qu
 
 Si non, elle recopie la map telle qu'elle était quand elle est entrée dans la fonction et prête à faire un BiggerMap.
 
+(( Si tu bloques sur le calcul, elle calcule la différence d'abscisses et d'ordonnées entre le premier # et le suivant (x_P - x_FIRST) et l'ajoute (ou le soustrait) à la position sur la map du premier # pour voir si on peut le placer. ))
+
 Pour ça, j'ai créé une fonction (<i>ft_cpy_tab</i>) qui est dans <b>ft_trim.c</b>. Elle copie la map au début dans une autre variable. Je l'ai fait parce que sinon y'avait des couilles avec les pointeurs et ça ne gardait pas la map du début.
 
 Du coup, la fonction <i>ft_place_tetri</i> avance aussi dans la map donc j'ai pu supprimer plein de trucs dans <i>ft_resolve</i>, elle fait plus que <b>54 lignes</b>! Par contre, <i>ft_place_tetri</i> fait <b>37 lignes</b> donc faudra équilibrer!
