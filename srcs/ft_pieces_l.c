@@ -28,7 +28,7 @@ char	*ft_is_lhorl(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i][j + 2] == '#' && tab[i + 1][j] == '#')
 			{
 				*found = 1;
-				return ("###\n#..\n");
+				return ("\n###\n#..\n");
 			}
 			j++;
 		}
@@ -52,7 +52,7 @@ char	*ft_is_lhorr(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 1][j + 2] == '#')
 			{
 				*found = 1;
-				return ("..#\n###\n");
+				return ("\n..#\n###\n");
 			}
 			j++;
 		}
@@ -76,7 +76,7 @@ char	*ft_is_lverr(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 2][j] == '#' && tab[i + 2][j + 1] == '#')
 			{
 				*found = 1;
-				return ("#.\n#.\n##\n");
+				return ("\n#.\n#.\n##\n");
 			}
 			j++;
 		}
@@ -100,7 +100,7 @@ char	*ft_is_lverl(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j + 1] == '#')
 			{
 				*found = 1;
-				return ("##\n.#\n.#\n");
+				return ("\n##\n.#\n.#\n");
 			}
 			j++;
 		}
