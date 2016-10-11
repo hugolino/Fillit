@@ -4,6 +4,7 @@ Fillit 2.0
 <b><i>Résolution</i></b>
 
 Déjà comme d'hab, j'ai rajouté la race de <i>#define</i> et de variables dans la structure <i>t_coord</i> donc si t'es paumé, jette un coup d'oeil dans le .h!
+
 J'ai surtout rajouté une variable <i>nb_l</i> qu'on récupère dans la fonction <b>ft_bufcpy</b> et qui garde le nombre de lignes qu'il y a dans la chaîne une fois trim.
 
 J'ai créé une fonction (<i>ft_place_tetri</i>) dans <b>ft_map_creator.c</b> qui choppe le premier # de la pièce et check derrière si on peut placer les # suivants. Si elle peut c'est good, elle copie les # et lâche le bouzin prêt à passer à la pièce suivante.
