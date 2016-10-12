@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/11 21:37:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 18:45:44 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,45 @@
 # define NEWYM Y_M + (Y_P - Y_FIRST)
 # define NEWXM X_M + (X_P - X_FIRST)
 # define SAVE cd->savemap
-
-typedef struct	s_int
+# define RANK tetri->rank
+# define TETRI tetri->tetri
+# define PREV tetri->previous
+# define NEXT tetri->next
+# define LEN tetri->len
+typedef struct		s_int
 {
-	int i;
-	int j;
-	int k;
-}				t_int;
+	int				i;
+	int				j;
+	int				k;
+}					t_int;
+
+typedef	struct		s_etri
+{
+	size_t			rank;
+	char			**tetri;
+	char			let;
+	size_t			len;
+	struct s_etri	*previous;
+	struct s_etri	*next;
+}					t_etri;
 
 typedef struct	s_coord
 {
-	size_t	x_m;
-	size_t	y_m;
-	size_t	x_p;
-	size_t	y_p;
-	size_t	nb_p;
-	size_t	cote;
-	size_t	nb_l;
-	size_t	x_first;
-	size_t	y_first;
-	char	*buf;
-	char	**tab;
-	char	**map;
-	char	**savemap;
-	char	letter;
+	size_t		x_m;
+	size_t		y_m;
+	size_t		x_p;
+	size_t		y_p;
+	size_t		nb_p;
+	size_t		cote;
+	size_t		nb_l;
+	size_t		x_first;
+	size_t		y_first;
+	size_t		a_rank;
+	char		*buf;
+	char		**tab;
+	char		**map;
+	char		**savemap;
+	char		letter;
 }				t_coord;
 
 /* ft_errors.c */
@@ -137,5 +152,12 @@ char			**ft_map_creator(size_t cotes);
 void			ft_place_tetri(t_coord *cd);
 void			ft_prepare_algo(t_coord *cd);
 void			ft_resolve(t_coord *cd);
+
+/* ft_manipulate_list.c */
+
+t_etri			*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j);
+t_etri			*ft_make_list(t_coord *cd);
+char			*ft_cpy_tetri(t_coord *cd, size_t *j);
+void			ft_cpy_first(t_coord *cd, t_etri *tetri, size_t *j);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 14:07:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 15:56:44 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	ft_prepare_algo(t_coord *cd)
 	Y_M = 0;
 	X_P = 0;
 	Y_P = 0;
-	NB_P = (ft_countl(BUF) / 4);
 	LET = 'A';
 	MAP = ft_map_creator(COTE);
 	ft_resolve(cd);
