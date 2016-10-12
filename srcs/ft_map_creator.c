@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/11 21:37:19 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 14:07:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,6 @@ void	ft_prepare_algo(t_coord *cd)
 void	ft_resolve(t_coord *cd)
 {
 	Y_M = 0;
-	if (TABP == '\n' && Y_P == 0)
-		Y_P++;
 	while (Y_M < COTE && TABP != '0')
 	{
 		X_M = 0;

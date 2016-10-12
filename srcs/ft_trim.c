@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/11 18:02:30 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 14:05:58 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 		trim = ft_strcat(trim, ft_test_t(tab, buf, pieces, found));
 		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;
+		if (*pieces != ft_countl(buf) + 1)
+			trim = ft_strcat(trim, "\n");
 	}
 	return (trim);
 }
@@ -53,17 +55,15 @@ char	*ft_sub_trim(char **tab, char *buf)
 void	ft_count_pieces(t_coord *cd)
 {
 	size_t i;
-	size_t nb;
 
 	i = 0;
-	nb = 0;
+	NB_P = 1;
 	while (BUF[i])
 	{
 		if (BUF[i] == '\n' && BUF[i - 1] == '\n')
-			nb++;
+			NB_P++;
 		i++;
 	}
-	NB_P = nb + 1;
 }
 
 char	**ft_cpy_tab(char **tab2, t_coord *cd)

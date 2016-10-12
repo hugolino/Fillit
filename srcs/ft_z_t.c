@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/09/22 15:38:02 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 13:55:17 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_is_z_up(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j] == '#' && tab[i + 2][j - 1] == '#')
 			{
 				*found = 1;
-				return ("\n.#\n##\n#.\n");
+				return (".#\n##\n#.\n");
 			}
 			j++;
 		}
@@ -52,7 +52,7 @@ char	*ft_is_t(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i][j + 2] == '#' && tab[i + 1][j + 1] == '#')
 			{
 				*found = 1;
-				return ("\n###\n.#.\n");
+				return ("###\n.#.\n");
 			}
 			j++;
 		}
@@ -76,7 +76,7 @@ char	*ft_is_t_left(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j] == '#' && tab[i + 2][j] == '#')
 			{
 				*found = 1;
-				return ("\n.#\n##\n.#\n");
+				return (".#\n##\n.#\n");
 			}
 			j++;
 		}
@@ -100,7 +100,7 @@ char	*ft_is_t_right(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j + 1] == '#' && tab[i + 2][j] == '#')
 			{
 				*found = 1;
-				return ("\n#.\n##\n#.\n");
+				return ("#.\n##\n#.\n");
 			}
 			j++;
 		}
@@ -124,7 +124,7 @@ char	*ft_is_t_up(char **tab, char *buf, int *pieces, int *found)
 			&& tab[i + 1][j] == '#' && tab[i + 1][j + 1] == '#')
 			{
 				*found = 1;
-				return ("\n.#.\n###\n");
+				return (".#.\n###\n");
 			}
 			j++;
 		}
