@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/12 18:49:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 19:08:22 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int		main(int argc, char **argv)
 			printf("%s", MAP[i]);
 			i++;
 		}
-		/*tetri = ft_make_list(cd);
+		/*printf("\n");
+		tetri = ft_make_list(cd);
 		while (tetri)
 		{
 			size_t k = 0;
@@ -50,7 +51,8 @@ int		main(int argc, char **argv)
 				printf("%s", TETRI[k]);
 				k++;
 			}
-			printf("\n");
+			if (NEXT != NULL)
+				printf("\n");
 			tetri = NEXT;
 		}
 		free(tetri);*/
