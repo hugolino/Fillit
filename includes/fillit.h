@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/12 18:45:44 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/12 19:04:43 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,14 +146,14 @@ char			*ft_test_t(char **tab, char *buf, int *pieces, int *found);
 int			ft_hash(char *str, size_t n);
 int			ft_dota(char *str, size_t n);
 
-/* ft_map_creator.c */
+/* ft_resolve.c */
 
 char			**ft_map_creator(size_t cotes);
 void			ft_place_tetri(t_coord *cd);
 void			ft_prepare_algo(t_coord *cd);
 void			ft_resolve(t_coord *cd);
 
-/* ft_manipulate_list.c */
+/* ft_create_list.c */
 
 t_etri			*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j);
 t_etri			*ft_make_list(t_coord *cd);
