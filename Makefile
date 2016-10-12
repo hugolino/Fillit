@@ -10,11 +10,11 @@ SRC_C = main.c \
 	ft_pieces_l.c \
 	ft_z_t.c \
 	ft_check_valid.c \
-	ft_map_creator.c \
+	ft_resolve.c \
 	ft_pieces_revlsq.c \
 	ft_errors.c \
 	ft_parser.c \
-	ft_manipulate_list.c \
+	ft_create_list.c \
 	ft_trim.c
 
 SRCS = $(addprefix $(DIR_SRC), $(SRC_C))
