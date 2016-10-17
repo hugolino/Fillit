@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/12 19:08:22 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/17 17:22:47 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		main(int argc, char **argv)
 	int		fd;
 	int		ret;
 	t_coord	*cd;
-	//t_etri	*tetri;
+	t_etri	*tetri;
 	size_t	i;
 
 	i = 0;
@@ -35,7 +35,8 @@ int		main(int argc, char **argv)
 		ft_errors(ret, BUF, TAB);
 		BUF = ft_sub_trim(TAB, BUF);
 		TAB = ft_bufcpy(BUF, cd);
-		ft_prepare_algo(cd);
+		tetri = ft_make_list(cd);
+		ft_prepare_algo(cd, tetri);
 		while (i < COTE)
 		{
 			printf("%s", MAP[i]);

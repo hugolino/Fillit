@@ -15,6 +15,7 @@ SRC_C = main.c \
 	ft_errors.c \
 	ft_parser.c \
 	ft_create_list.c \
+	ft_stock.c \
 	ft_trim.c
 
 SRCS = $(addprefix $(DIR_SRC), $(SRC_C))

@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 19:23:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/13 20:32:44 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j)
 t_etri	*ft_make_list(t_coord *cd)
 {
 	t_etri	*tetri;
-	t_etri	*begin_list;
 	size_t	i;
 	size_t	*j;
 
@@ -58,13 +57,13 @@ t_etri	*ft_make_list(t_coord *cd)
 			tetri->let = 'A';
 			PREV = NULL;
 			ft_cpy_first(cd, tetri, j);
-			begin_list = tetri;
+			BEGIN = tetri;
 		}
 		else
 			tetri = ft_add_list(cd, tetri, i, j);
 		i++;
 	}
-	tetri = begin_list;
+	tetri = BEGIN;
 	return (tetri);
 }
 
