@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/17 18:01:01 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/17 20:01:28 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,7 @@ char				**ft_map_creator(size_t cotes);
 void				ft_place_tetri(t_coord *cd, t_etri *tetri);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 void				ft_resolve(t_coord *cd, t_etri *tetri);
+size_t				ft_factorial(size_t nb);
 
 /* ft_create_list.c */
 

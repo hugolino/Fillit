@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/17 17:22:47 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/17 19:43:03 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int		main(int argc, char **argv)
 		TAB = ft_bufcpy(BUF, cd);
 		tetri = ft_make_list(cd);
 		ft_prepare_algo(cd, tetri);
-		while (i < COTE)
+		/*while (i < COTE)
 		{
 			printf("%s", MAP[i]);
 			i++;
 		}
-		/*printf("\n");
+		printf("\n");
 		tetri = ft_make_list(cd);
 		while (tetri)
 		{
@@ -55,8 +55,8 @@ int		main(int argc, char **argv)
 			if (NEXT != NULL)
 				printf("\n");
 			tetri = NEXT;
-		}
-		free(tetri);*/
+		}*/
+		free(tetri);
 		free(cd);
 	}
 	return (0);

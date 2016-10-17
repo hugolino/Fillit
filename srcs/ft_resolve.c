@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/17 18:03:18 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/17 20:03:34 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,16 @@ void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 	(void)tetri;
 	while (i < NB_P)
 	{
-	  STOCK[i] = i;
-	  i++;
+		STOCK[i] = i;
+		i++;
 	}
 	//ft_resolve(cd, tetri)
-	int meh = 0;
-	int bah = 0;
-	while (meh < 5)
+	size_t meh = 0;
+	size_t bah = 0;
+	while (meh < ft_factorial(NB_P) && NB_P < 12)
 	{
 		bah = 0;
-		while (bah < 3)
+		while (bah < NB_P)
 		{
 			printf("%zu, ", STOCK[bah]);
 			bah++;
@@ -127,9 +127,20 @@ void	ft_resolve(t_coord *cd, t_etri *tetri)
 		tetri = NEXT;
 	}
 	//if (COTE < /*BESTCOTE*/)
-		//BESTMAP = MAP;
+	//BESTMAP = MAP;
 	/*CONDITION VERIFIER TOUTES POSSIBILITES TESTEES
-	ft_create_stock(cd);
-	tetri = BEGIN;
-	ft_other_resolve;*/
+	  ft_create_stock(cd);
+	  tetri = BEGIN;
+	  ft_other_resolve;*/
+}
+
+size_t	ft_factorial(size_t nb)
+{
+	if (nb > 12)
+		return (0);
+	if (nb == 0)
+		return (1);
+	if (nb > 1)
+		nb = nb * ft_factorial(nb - 1);
+	return (nb);
 }
