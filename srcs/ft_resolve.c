@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/17 20:03:34 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/18 18:40:57 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,99 +48,112 @@ void	ft_place_tetri(t_coord *cd, t_etri *tetri)
 
 	X_P = 0;
 	Y_P = 0;
+	X_FIRST = 0;
+	X_FIRST = 0;
 	count = 0;
 	SAVE = ft_cpy_tab(MAP, cd);
-	while (count < 4 && Y_M < COTE)
+	while (count < 4 && Y_P < LEN && NEWYM < COTE && NEWXM <= COTE)
 	{
-		if (NEWYM >= COTE || NEWXM >= COTE || (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] != '.'))
+		if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
 		{
-			if (X_M < COTE - 1)
-				X_M++;
-			else
+			if (count == 0)
 			{
-				X_M = 0;
-				Y_M++;
+				X_FIRST = X_P;
+				Y_FIRST = Y_P;
 			}
-		}
-		else if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
-		{
 			MAP[NEWYM][NEWXM] = LET;
 			count++;
 		}
-		if (TETRI[Y_P][X_P] != '#' || MAP[NEWYM][NEWXM] == LET)
-		{	
-			if (X_P + 1 < ft_strlen(TETRI[Y_P]))
-				X_P++;
-			else
-			{
-				Y_P++;
-				X_P = 0;
-			}
+		if (X_P + 1 < ft_strlen(TETRI[Y_P]))
+			X_P++;
+		else
+		{
+			X_P = 0;
+			Y_P++;
 		}
 	}
-	tetri = NEXT;
-	if (Y_M >= COTE)
+	if (count != 4)
 	{
-		MAP = SAVE;
-		ft_resolve(cd, tetri);
+		MAP = ft_cpy_tab(SAVE, cd);
+		return ;
 	}
+	PLACED = 1;
+	ASTOCK++;
+	Y_M = 0;
+	X_M = 0;
 }
 
 void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 {
 	size_t	i;
+	size_t	first;
 
 	i = 0;
-	X_M = 0;
-	Y_M = 0;
-	MAP = ft_map_creator(COTE);
+	first = 0;
 	STOCK = (size_t *)malloc(sizeof(size_t) * NB_P);
-	(void)tetri;
+	BCOTE = 100;
 	while (i < NB_P)
 	{
 		STOCK[i] = i;
 		i++;
 	}
-	//ft_resolve(cd, tetri)
-	size_t meh = 0;
-	size_t bah = 0;
-	while (meh < ft_factorial(NB_P) && NB_P < 12)
+	while (ft_check_end(cd) == 0)
 	{
-		bah = 0;
-		while (bah < NB_P)
-		{
-			printf("%zu, ", STOCK[bah]);
-			bah++;
-		}
-		printf("\n");
-		ft_prepare_stock(cd);
-		meh++;
+		if (first != 0)
+			ft_prepare_stock(cd);
+		first = 1;
+		tetri = BEGIN;
+		X_M = 0;
+		Y_M = 0;
+		COTE = 2;
+		MAP = ft_map_creator(COTE);
+		ft_resolve(cd, tetri);
 	}
 }
 
 void	ft_resolve(t_coord *cd, t_etri *tetri)
 {
-	while (tetri)
+	ASTOCK = 0;
+	while (ASTOCK < NB_P && COTE <= BCOTE)
 	{
-		ft_place_tetri(cd, tetri);
-		//BIGGERMAP?
-		tetri = NEXT;
+		PLACED = 0;
+		if (Y_M >= COTE)
+		{
+			ft_bigger_map(cd, tetri);
+			return ;
+		}
+		tetri = ft_chose_stock(cd, tetri);
+		if (MAP[Y_M][X_M] == '.')
+			ft_place_tetri(cd, tetri);
+		if (X_M + 1 < COTE && PLACED == 0)
+			X_M++;
+		else if (X_M + 1 >= COTE && PLACED == 0)
+
+		{
+			X_M = 0;
+			Y_M++;
+		}
 	}
-	//if (COTE < /*BESTCOTE*/)
-	//BESTMAP = MAP;
-	/*CONDITION VERIFIER TOUTES POSSIBILITES TESTEES
-	  ft_create_stock(cd);
-	  tetri = BEGIN;
-	  ft_other_resolve;*/
+	if (COTE < BCOTE || (COTE == BCOTE && ft_best_map(cd) == 1))
+	{
+		BMAP = ft_cpy_tab(MAP, cd);
+		BCOTE = COTE;
+	}
 }
 
-size_t	ft_factorial(size_t nb)
+int		ft_check_end(t_coord *cd)
 {
-	if (nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (nb > 1)
-		nb = nb * ft_factorial(nb - 1);
-	return (nb);
+	size_t	i;
+	size_t	end;
+
+	i = 0;
+	end = NB_P - 1;
+	while (i < NB_P)
+	{
+		if (STOCK[i] != end)
+			return (0);
+		end--;
+		i++;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/13 20:32:44 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/18 16:03:26 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j)
 
 	k = 0;
 	new_t = (t_etri *)malloc(sizeof(t_etri));
-	new_t->rank = i + 1;
+	new_t->rank = i;
 	new_t->let = tetri->let + 1;
 	new_t->previous = tetri;
 	new_t->tetri = (char **)malloc(sizeof(char *) * 6);

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/17 20:01:28 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/18 17:14:15 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define LET tetri->let
 # define X_FIRST cd->x_first
 # define Y_FIRST cd->y_first
-# define NEWYM Y_M + Y_P
-# define NEWXM X_M + X_P
+# define NEWYM Y_M + (Y_P - Y_FIRST)
+# define NEWXM X_M + (X_P - X_FIRST)
 # define SAVE cd->savemap
 # define RANK tetri->rank
 # define TETRI tetri->tetri
@@ -44,6 +44,10 @@
 # define LEN tetri->len
 # define STOCK cd->stock
 # define BEGIN cd->begin_list
+# define ASTOCK cd->a_stock
+# define BCOTE cd->b_cote
+# define BMAP cd->b_map
+# define PLACED cd->placed
 
 typedef struct		s_int
 {
@@ -71,15 +75,17 @@ typedef struct	s_coord
 	size_t			y_p;
 	size_t			nb_p;
 	size_t			cote;
+	size_t			b_cote;
 	size_t			nb_l;
 	size_t			x_first;
 	size_t			y_first;
-	size_t			a_rank;
+	size_t			a_stock;
+	size_t			placed;
 	char			*buf;
 	char			**tab;
 	char			**map;
 	char			**savemap;
-	char			letter;
+	char			**b_map;
 	struct s_etri	*begin_list;
 }					t_coord;
 
@@ -157,7 +163,7 @@ char				**ft_map_creator(size_t cotes);
 void				ft_place_tetri(t_coord *cd, t_etri *tetri);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 void				ft_resolve(t_coord *cd, t_etri *tetri);
-size_t				ft_factorial(size_t nb);
+int					ft_check_end(t_coord *cd);
 
 /* ft_create_list.c */
 
@@ -170,5 +176,8 @@ void				ft_cpy_first(t_coord *cd, t_etri *tetri, size_t *j);
 
 void				ft_prepare_stock(t_coord *cd);
 void				ft_place_stock(t_coord *cd, int i);
+t_etri				*ft_chose_stock(t_coord *cd, t_etri *tetri);
+void				ft_bigger_map(t_coord *cd, t_etri *tetri);
+int					ft_best_map(t_coord *cd);
 
 #endif
