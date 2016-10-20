@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 13:06:20 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/18 17:57:29 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/20 18:31:50 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,25 +96,33 @@ void	ft_bigger_map(t_coord *cd, t_etri *tetri)
 int		ft_best_map(t_coord *cd)
 {
 	t_int	dot;
+	int		acote;
+	int		bcount;
 
-	dot.i = 0;
-	dot.k = 0;
-	while (dot.i < (int)COTE && dot.k >= 0)
+	acote = 2;
+	while (acote <= COTE)
 	{
-		dot.j = 0;
-		while (dot.j < (int)COTE && dot.k >= 0)
+		dot.i = 0;
+		bcount = 0;
+		dot.k = 0;
+		while (dot.i < acote)
 		{
-			if (MAP[dot.i][dot.j] != '.' && BMAP[dot.i][dot.j] == '.')
-				dot.k++;
-			else if (MAP[dot.i][dot.j] == '.' && BMAP[dot.i][dot.j] != '.')
-				dot.k--;
-			dot.j++;
+			dot.j = 0;
+			while (dot.j < acote)
+			{
+				if (MAP[dot.i][dot.j] == '.')
+					dot.k++;
+				else if (BMAP[dot.i][dot.j] == '.')
+					bcount++;
+				dot.j++;
+			}
+			dot.i++;
 		}
-		if (dot.k > 0)
-			return (1);
-		else if (dot.k < 0)
+		if (dot.k > bcount)
 			return (0);
-		dot.i++;
+		else if (dot.k < bcount)
+			return (1);
+		acote++;
 	}
 	return (0);
 }
