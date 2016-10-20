@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/18 17:14:15 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/20 18:00:25 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define LET tetri->let
 # define X_FIRST cd->x_first
 # define Y_FIRST cd->y_first
-# define NEWYM Y_M + (Y_P - Y_FIRST)
-# define NEWXM X_M + (X_P - X_FIRST)
+# define NEWYM (Y_M + (Y_P - Y_FIRST))
+# define NEWXM (X_M + (X_P - X_FIRST))
 # define SAVE cd->savemap
 # define RANK tetri->rank
 # define TETRI tetri->tetri
@@ -61,7 +61,7 @@ typedef	struct		s_etri
 	size_t			rank;
 	char			**tetri;
 	char			let;
-	size_t			len;
+	int				len;
 	struct s_etri	*previous;
 	struct s_etri	*next;
 }					t_etri;
@@ -69,16 +69,16 @@ typedef	struct		s_etri
 typedef struct	s_coord
 {
 	size_t			*stock;
-	size_t			x_m;
-	size_t			y_m;
-	size_t			x_p;
-	size_t			y_p;
+	int				x_m;
+	int				y_m;
+	int				x_p;
+	int				y_p;
 	size_t			nb_p;
-	size_t			cote;
-	size_t			b_cote;
+	int				cote;
+	int				b_cote;
 	size_t			nb_l;
-	size_t			x_first;
-	size_t			y_first;
+	int				x_first;
+	int				y_first;
 	size_t			a_stock;
 	size_t			placed;
 	char			*buf;

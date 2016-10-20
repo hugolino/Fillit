@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 17:15:46 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/20 17:52:34 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_count_pieces(t_coord *cd)
 char	**ft_cpy_tab(char **tab2, t_coord *cd)
 {
 	char	**tab1;
-	size_t	y;
+	int		y;
 
 	y = 0;
 	tab1 = (char **)malloc(sizeof(char *) * COTE);

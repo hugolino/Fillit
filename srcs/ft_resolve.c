@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/18 18:40:57 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/20 18:12:07 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,23 @@ void	ft_place_tetri(t_coord *cd, t_etri *tetri)
 
 	X_P = 0;
 	Y_P = 0;
-	X_FIRST = 0;
+	Y_FIRST = 0;
 	X_FIRST = 0;
 	count = 0;
 	SAVE = ft_cpy_tab(MAP, cd);
-	while (count < 4 && Y_P < LEN && NEWYM < COTE && NEWXM <= COTE)
+	while (count < 4 && Y_P < LEN && NEWYM < COTE && NEWXM <= COTE && NEWYM >= 0 && NEWXM >= 0)
 	{
-		if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
+	if ( count == 0)
 		{
-			if (count == 0)
-			{
-				X_FIRST = X_P;
-				Y_FIRST = Y_P;
-			}
+			X_FIRST = X_P;
+			Y_FIRST = Y_P;
+		}
+	if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
+		{
 			MAP[NEWYM][NEWXM] = LET;
 			count++;
 		}
-		if (X_P + 1 < ft_strlen(TETRI[Y_P]))
+		if (X_P + 1 < (int)ft_strlen(TETRI[Y_P]))
 			X_P++;
 		else
 		{
@@ -97,7 +97,7 @@ void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 		STOCK[i] = i;
 		i++;
 	}
-	while (ft_check_end(cd) == 0)
+	while (ft_check_end(cd) == 0 || first == 0)
 	{
 		if (first != 0)
 			ft_prepare_stock(cd);

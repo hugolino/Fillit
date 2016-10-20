@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/18 18:33:51 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/20 17:50:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	int		ret;
 	t_coord	*cd;
 	t_etri	*tetri;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	cd = (t_coord *)malloc(sizeof(t_coord));
