@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/21 19:11:47 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:13:51 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 	}
 }
 
-void	ft_resolve(t_coord *cd, t_etri *tetri)
+int		ft_resolve(t_coord *cd, t_etri *tetri)
 {
 	if (tetri == NULL)
 		return (1);

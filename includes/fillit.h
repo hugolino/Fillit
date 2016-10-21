@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/21 19:02:23 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:16:26 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,8 +164,7 @@ int					ft_dota(char *str, size_t n);
 char				**ft_map_creator(size_t cotes);
 void				ft_place_tetri(t_coord *cd, t_etri *tetri);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
-void				ft_resolve(t_coord *cd, t_etri *tetri);
-int					ft_check_end(t_coord *cd);
+int					ft_resolve(t_coord *cd, t_etri *tetri);
 int					ft_sqrt(int nbr);
 
 /* ft_create_list.c */
@@ -174,13 +173,5 @@ t_etri				*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j);
 t_etri				*ft_make_list(t_coord *cd);
 char				*ft_cpy_tetri(t_coord *cd, size_t *j);
 void				ft_cpy_first(t_coord *cd, t_etri *tetri, size_t *j);
-
-/* ft_stock.c */
-
-void				ft_prepare_stock(t_coord *cd);
-void				ft_place_stock(t_coord *cd, int i);
-t_etri				*ft_chose_stock(t_coord *cd, t_etri *tetri);
-void				ft_bigger_map(t_coord *cd, t_etri *tetri);
-int					ft_best_map(t_coord *cd);
 
 #endif
