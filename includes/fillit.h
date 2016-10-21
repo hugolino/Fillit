@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/21 14:07:17 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:02:23 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define BCOTE cd->b_cote
 # define BMAP cd->b_map
 # define PLACED cd->placed
+# define LAR tetri->larg
 
 typedef struct		s_int
 {
@@ -62,6 +63,7 @@ typedef	struct		s_etri
 	char			**tetri;
 	char			let;
 	int				len;
+	int				larg;
 	struct s_etri	*previous;
 	struct s_etri	*next;
 }					t_etri;

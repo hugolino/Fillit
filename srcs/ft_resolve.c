@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/21 15:19:21 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:11:47 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,85 +84,46 @@ void	ft_place_tetri(t_coord *cd, t_etri *tetri)
 }
 
 void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
-{
-	size_t	i;
-	size_t	first;
-
-	i = 0;
-	first = 0;
-	STOCK = (size_t *)malloc(sizeof(size_t) * NB_P);
-	BCOTE = 100;
-	while (i < NB_P)
+{	
+	COTE = ft_sqrt(NB_P * 4);
+	MAP = ft_map_creator(COTE);
+	while (ft_resolve(cd, tetri) == 0)
 	{
-		STOCK[i] = i;
-		i++;
-	}
-	while (ft_check_end(cd) == 0 || first == 0)
-	{
-		if (first != 0)
-			ft_prepare_stock(cd);
-		first = 1;
 		tetri = BEGIN;
-		X_M = 0;
-		Y_M = 0;
-		COTE = ft_sqrt(NB_P * 4);
+		COTE++;
 		MAP = ft_map_creator(COTE);
-		ft_resolve(cd, tetri);
 	}
 }
 
 void	ft_resolve(t_coord *cd, t_etri *tetri)
 {
-	ASTOCK = 0;
-	while (ASTOCK < NB_P && COTE <= BCOTE)
+	if (tetri == NULL)
+		return (1);
+	Y_M = 0;
+	while (Y_M + LEN < COTE)
 	{
-		PLACED = 0;
-		if (Y_M >= COTE || Y_M + LEN > COTE)
+		X_M = 0;
+		while (X_M + LAR - 1 < COTE)
 		{
-			ft_bigger_map(cd, tetri);
-			return ;
-		}
-		tetri = ft_chose_stock(cd, tetri);
-		if (MAP[Y_M][X_M] == '.' && Y_M + LEN < COTE)
-			ft_place_tetri(cd, tetri);
-		if ((X_M + (int)ft_strlen(TETRI[0])) - 1 <= COTE && PLACED == 0)
+			if (ft_check_tetri(cd, tetri) == 1)
+			{
+				if (ft_resolve(cd, NEXT) == 1)
+					return (1);
+				else
+					ft_place_tetri(cd, tetri, '.');
+			}
 			X_M++;
-		else if ((X_M + (int)ft_strlen(TETRI[0])) - 1 > COTE && PLACED == 0)
-
-		{
-			X_M = 0;
-			Y_M++;
 		}
+		Y_M++;
 	}
-	if (COTE < BCOTE || (COTE == BCOTE && ft_best_map(cd) == 1))
-	{
-		BMAP = ft_cpy_tab(MAP, cd);
-		BCOTE = COTE;
-	}
-}
-
-int		ft_check_end(t_coord *cd)
-{
-	size_t	i;
-	size_t	end;
-
-	i = 0;
-	end = NB_P - 1;
-	while (i < NB_P)
-	{
-		if (STOCK[i] != end)
-			return (0);
-		end--;
-		i++;
-	}
-	return (1);
+	return (0);
 }
 
 int		ft_sqrt(int nbr)
 {
 	int sqrt;
 
-	sqrt = 0;
+	sqrt = 2;
 	while (sqrt * sqrt < nbr)
 		sqrt++;
 	return (sqrt);
