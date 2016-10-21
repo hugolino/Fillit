@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/20 18:12:07 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 15:19:21 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 		tetri = BEGIN;
 		X_M = 0;
 		Y_M = 0;
-		COTE = 2;
+		COTE = ft_sqrt(NB_P * 4);
 		MAP = ft_map_creator(COTE);
 		ft_resolve(cd, tetri);
 	}
@@ -117,17 +117,17 @@ void	ft_resolve(t_coord *cd, t_etri *tetri)
 	while (ASTOCK < NB_P && COTE <= BCOTE)
 	{
 		PLACED = 0;
-		if (Y_M >= COTE)
+		if (Y_M >= COTE || Y_M + LEN > COTE)
 		{
 			ft_bigger_map(cd, tetri);
 			return ;
 		}
 		tetri = ft_chose_stock(cd, tetri);
-		if (MAP[Y_M][X_M] == '.')
+		if (MAP[Y_M][X_M] == '.' && Y_M + LEN < COTE)
 			ft_place_tetri(cd, tetri);
-		if (X_M + 1 < COTE && PLACED == 0)
+		if ((X_M + (int)ft_strlen(TETRI[0])) - 1 <= COTE && PLACED == 0)
 			X_M++;
-		else if (X_M + 1 >= COTE && PLACED == 0)
+		else if ((X_M + (int)ft_strlen(TETRI[0])) - 1 > COTE && PLACED == 0)
 
 		{
 			X_M = 0;
@@ -156,4 +156,14 @@ int		ft_check_end(t_coord *cd)
 		i++;
 	}
 	return (1);
+}
+
+int		ft_sqrt(int nbr)
+{
+	int sqrt;
+
+	sqrt = 0;
+	while (sqrt * sqrt < nbr)
+		sqrt++;
+	return (sqrt);
 }

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/20 18:00:25 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 14:07:17 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void				ft_place_tetri(t_coord *cd, t_etri *tetri);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 void				ft_resolve(t_coord *cd, t_etri *tetri);
 int					ft_check_end(t_coord *cd);
+int					ft_sqrt(int nbr);
 
 /* ft_create_list.c */
 
