@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 14:01:34 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:27:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_is_lrevhorr(char **tab, char *buf, int *pieces, int *found)
 		while (j < 6 && i < 3 && j < 3)
 		{
 			if (tab[i][j] == '#' && tab[i][j + 1] == '#' \
-			&& tab[i][j + 2] == '#' && tab[i + 2][j + 2] == '#')
+			&& tab[i][j + 2] == '#' && tab[i + 1][j + 2] == '#')
 			{
 				*found = 1;
 				return ("###\n..#\n");

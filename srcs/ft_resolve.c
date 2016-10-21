@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/21 19:13:51 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:34:38 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,45 +42,40 @@ char	**ft_map_creator(size_t cotes)
 	return (map);
 }
 
-void	ft_place_tetri(t_coord *cd, t_etri *tetri)
+int		ft_check_tetri(t_coord *cd, t_etri *tetri)
 {
-	int		count;
-
-	X_P = 0;
 	Y_P = 0;
-	Y_FIRST = 0;
-	X_FIRST = 0;
-	count = 0;
-	SAVE = ft_cpy_tab(MAP, cd);
-	while (count < 4 && Y_P < LEN && NEWYM < COTE && NEWXM <= COTE && NEWYM >= 0 && NEWXM >= 0)
+	while (Y_P < LEN)
 	{
-	if ( count == 0)
+		X_P = 0;
+		while (X_P < LAR)
 		{
-			X_FIRST = X_P;
-			Y_FIRST = Y_P;
-		}
-	if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] == '.')
-		{
-			MAP[NEWYM][NEWXM] = LET;
-			count++;
-		}
-		if (X_P + 1 < (int)ft_strlen(TETRI[Y_P]))
+			if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] != '.')
+				return (0);
 			X_P++;
-		else
-		{
-			X_P = 0;
-			Y_P++;
 		}
+		Y_P++;
 	}
-	if (count != 4)
+	ft_place_tetri(cd, tetri, LET);
+	return (1);
+}
+
+void	ft_place_tetri(t_coord *cd, t_etri *tetri, char c)
+{
+	Y_P = 0;
+	while (Y_P < LEN)
 	{
-		MAP = ft_cpy_tab(SAVE, cd);
-		return ;
+		X_P = 0;
+		while (X_P < LAR)
+		{
+			if (TETRI[Y_P][X_P] == '#')
+				MAP[NEWYM][NEWXM] = c;
+			X_P++;
+		}
+		Y_P++;
 	}
-	PLACED = 1;
-	ASTOCK++;
-	Y_M = 0;
-	X_M = 0;
+	Y_P = 0;
+	X_P = 0;
 }
 
 void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
@@ -103,7 +98,7 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 	while (Y_M + LEN < COTE)
 	{
 		X_M = 0;
-		while (X_M + LAR - 1 < COTE)
+		while (X_M + (LAR - 1) <= COTE)
 		{
 			if (ft_check_tetri(cd, tetri) == 1)
 			{
@@ -113,6 +108,13 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 					ft_place_tetri(cd, tetri, '.');
 			}
 			X_M++;
+			int i = 0;
+			while (i < COTE)
+			{
+				printf("MAP = %s", MAP[i]);
+				i++;
+			}
+			printf("\n");
 		}
 		Y_M++;
 	}

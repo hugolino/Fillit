@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/21 19:16:26 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/21 19:22:12 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define LET tetri->let
 # define X_FIRST cd->x_first
 # define Y_FIRST cd->y_first
-# define NEWYM (Y_M + (Y_P - Y_FIRST))
-# define NEWXM (X_M + (X_P - X_FIRST))
+# define NEWYM Y_M + Y_P
+# define NEWXM X_M + X_P
 # define SAVE cd->savemap
 # define RANK tetri->rank
 # define TETRI tetri->tetri
@@ -162,7 +162,8 @@ int					ft_dota(char *str, size_t n);
 /* ft_resolve.c */
 
 char				**ft_map_creator(size_t cotes);
-void				ft_place_tetri(t_coord *cd, t_etri *tetri);
+int					ft_check_tetri(t_coord *cd, t_etri *tetri);
+void				ft_place_tetri(t_coord *cd, t_etri *tetri, char c);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 int					ft_resolve(t_coord *cd, t_etri *tetri);
 int					ft_sqrt(int nbr);
