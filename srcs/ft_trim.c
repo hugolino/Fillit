@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/20 17:52:34 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 02:04:46 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,14 @@ char	**ft_cpy_tab(char **tab2, t_coord *cd)
 		y++;
 	}
 	return (tab1);
+}
+
+int		ft_sqrt(int nbr)
+{
+	int sqrt;
+
+	sqrt = 0;
+	while (sqrt * sqrt < nbr)
+		sqrt++;
+	return (sqrt);
 }

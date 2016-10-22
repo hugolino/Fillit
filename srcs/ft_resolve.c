@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 01:54:32 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 02:06:03 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,4 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 		pmap->i++;
 	}
 	return (0);
-}
-
-int		ft_sqrt(int nbr)
-{
-	int sqrt;
-
-	sqrt = 2;
-	while (sqrt * sqrt < nbr)
-		sqrt++;
-	return (sqrt);
 }

@@ -6,23 +6,21 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 00:31:11 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 02:09:13 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j)
+t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j)
 {
 	t_etri	*new_t;
 	size_t	k;
 
 	k = 0;
 	new_t = (t_etri *)malloc(sizeof(t_etri));
-	new_t->rank = i;
 	new_t->let = tetri->let + 1;
-	new_t->previous = tetri;
 	new_t->tetri = (char **)malloc(sizeof(char *) * 6);
 	while (TAB[*j][0] != '\n' && TAB[*j][0] != '0')
 	{
@@ -33,8 +31,7 @@ t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j)
 	}
 	new_t->larg = (int)ft_strlen(new_t->tetri[0]) - 1;
 	*j = *j + 1;
-	if (new_t->rank == NB_P - 2)
-		new_t->next = NULL;
+	new_t->next = NULL;
 	NEXT = new_t;
 	tetri = new_t;
 	return (tetri);
@@ -54,15 +51,13 @@ t_etri	*ft_make_list(t_coord *cd)
 		if (i == 0)
 		{
 			tetri = (t_etri *)malloc(sizeof(t_etri));
-			RANK = i;
 			tetri->let = 'A';
-			PREV = NULL;
 			ft_cpy_first(cd, tetri, j);
 			LAR = ft_strlen(TETRI[0]) - 1;
 			BEGIN = tetri;
 		}
 		else
-			tetri = ft_add_list(cd, tetri, i, j);
+			tetri = ft_add_list(cd, tetri, j);
 		i++;
 	}
 	tetri = BEGIN;

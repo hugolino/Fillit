@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/22 01:40:50 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 02:11:57 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include "../Libft/libft.h"
 
 # define BUFF_SIZE 1000
-# define X_M cd->x_m
-# define Y_M cd->y_m
 # define X_P cd->x_p
 # define Y_P cd->y_p
 # define NB_P cd->nb_p
@@ -32,22 +30,10 @@
 # define BUF cd->buf
 # define TABCT tab[ct.i][ct.j]
 # define LET tetri->let
-# define X_FIRST cd->x_first
-# define Y_FIRST cd->y_first
-# define NEWYM Y_M + Y_P
-# define NEWXM X_M + X_P
-# define SAVE cd->savemap
-# define RANK tetri->rank
 # define TETRI tetri->tetri
-# define PREV tetri->previous
 # define NEXT tetri->next
 # define LEN tetri->len
-# define STOCK cd->stock
 # define BEGIN cd->begin_list
-# define ASTOCK cd->a_stock
-# define BCOTE cd->b_cote
-# define BMAP cd->b_map
-# define PLACED cd->placed
 # define LAR tetri->larg
 
 typedef struct		s_int
@@ -59,35 +45,23 @@ typedef struct		s_int
 
 typedef	struct		s_etri
 {
-	size_t			rank;
 	char			**tetri;
 	char			let;
 	int				len;
 	int				larg;
-	struct s_etri	*previous;
 	struct s_etri	*next;
 }					t_etri;
 
 typedef struct	s_coord
 {
-	size_t			*stock;
-	int				x_m;
-	int				y_m;
 	int				x_p;
 	int				y_p;
 	size_t			nb_p;
 	int				cote;
-	int				b_cote;
 	size_t			nb_l;
-	int				x_first;
-	int				y_first;
-	size_t			a_stock;
-	size_t			placed;
 	char			*buf;
 	char			**tab;
 	char			**map;
-	char			**savemap;
-	char			**b_map;
 	struct s_etri	*begin_list;
 }					t_coord;
 
@@ -166,13 +140,13 @@ int					ft_check_tetri(t_coord *cd, t_etri *tetri, t_int *pmap);
 void				ft_place_tetri(t_coord *cd, t_etri *tetri, char c, t_int *pmap);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 int					ft_resolve(t_coord *cd, t_etri *tetri);
-int					ft_sqrt(int nbr);
 
 /* ft_create_list.c */
 
-t_etri				*ft_add_list(t_coord *cd, t_etri *tetri, size_t i, size_t *j);
+t_etri				*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j);
 t_etri				*ft_make_list(t_coord *cd);
 char				*ft_cpy_tetri(t_coord *cd, size_t *j);
 void				ft_cpy_first(t_coord *cd, t_etri *tetri, size_t *j);
+int					ft_sqrt(int nbr);
 
 #endif
