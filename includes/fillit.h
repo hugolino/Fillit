@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/21 19:22:12 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 01:40:50 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,8 +162,8 @@ int					ft_dota(char *str, size_t n);
 /* ft_resolve.c */
 
 char				**ft_map_creator(size_t cotes);
-int					ft_check_tetri(t_coord *cd, t_etri *tetri);
-void				ft_place_tetri(t_coord *cd, t_etri *tetri, char c);
+int					ft_check_tetri(t_coord *cd, t_etri *tetri, t_int *pmap);
+void				ft_place_tetri(t_coord *cd, t_etri *tetri, char c, t_int *pmap);
 void				ft_prepare_algo(t_coord *cd, t_etri *tetri);
 int					ft_resolve(t_coord *cd, t_etri *tetri);
 int					ft_sqrt(int nbr);
