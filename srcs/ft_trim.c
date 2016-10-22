@@ -6,12 +6,11 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 02:04:46 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:56:18 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 {

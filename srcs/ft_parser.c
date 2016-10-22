@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 12:51:39 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 14:03:52 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:54:14 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,36 +52,4 @@ char	*ft_test_t(char **tab, char *buf, int *pieces, int *found)
 	else if (ft_strcmp(ft_is_t_up(tab, buf, pieces, found), "") != 0)
 		trim = ".#.\n###\n";
 	return (trim);
-}
-
-int	ft_hash(char *str, size_t n)
-{
-	int i;
-	int a;
-
-	i = n;
-	a = 0;
-	while (str[i])
-	{
-	if (str[i] == '#')
-		a++;
-	i++;
-	}
-	return (a);
-}
-
-int	ft_dota(char *str, size_t n)
-{
-  int i;
-  int d;
-
-  i = n;
-  d = 0;
-  while (str[i])
-    {
-      if (str[i] == '.')
-	d++;
-      i++;
-    }
-  return (d);
 }

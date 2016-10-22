@@ -6,12 +6,11 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 02:06:03 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:56:00 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	**ft_map_creator(size_t cotes)
 {
@@ -50,7 +49,7 @@ int		ft_check_tetri(t_coord *cd, t_etri *tetri, t_int *pmap)
 		X_P = 0;
 		while (X_P < LAR)
 		{
-			if (TETRI[Y_P][X_P] == '#' && MAP[Y_P + pmap->i][X_P + pmap->j] != '.')
+			if (TETRI[Y_P][X_P] == '#' && MAP[NEWYM][NEWXM] != '.')
 				return (0);
 			X_P++;
 		}
@@ -69,7 +68,7 @@ void	ft_place_tetri(t_coord *cd, t_etri *tetri, char c, t_int *pmap)
 		while (X_P < LAR)
 		{
 			if (TETRI[Y_P][X_P] == '#')
-				MAP[Y_P + pmap->i][X_P + pmap->j] = c;
+				MAP[NEWYM][NEWXM] = c;
 			X_P++;
 		}
 		Y_P++;
@@ -97,10 +96,10 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 	if (tetri == NULL)
 		return (1);
 	pmap->i = 0;
-	while (pmap->i <= COTE - LEN)
+	while (pmap->i + LEN <= COTE)
 	{
 		pmap->j = 0;
-		while (pmap->j <= COTE - LAR)
+		while (pmap->j + LAR <= COTE)
 		{
 			if (ft_check_tetri(cd, tetri, pmap))
 			{

@@ -6,12 +6,11 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 02:09:13 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:40:11 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j)
 {

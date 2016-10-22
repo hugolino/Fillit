@@ -6,12 +6,11 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 10:15:42 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/03 12:52:39 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:53:28 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int		ft_diese(char **tab, char *buf)
 {
@@ -109,38 +108,21 @@ int		ft_col(char *buf)
 	return (1);
 }
 
-int		ft_errors(int ret, char *buf, char **tab)
+void	ft_errors(int ret, char *buf, char **tab)
 {
 	if (ret == -1)
 	{
-		printf("-1, Echec Read\n");
-		return (-1);
+		ft_putstr("error\n");
+		exit(0);
 	}
-	else if (ft_chrn(buf) == 0)
+	else if (ft_chrn(buf) == 0 || ft_col(buf) == 0 || ft_dot(buf) == 0)
 	{
-		printf("-1, Mauvais nombre de lignes\n");
-		return (-1);
+		ft_putstr("error\n");
+		exit(0);
 	}
-	else if (ft_col(buf) == 0)
+	else if (ft_diese(tab, buf) == 0 || ft_valid(tab, buf) == 0)
 	{
-		printf("-1, Mauvais nombre de colonnes\n");
-		return (-1);
+		ft_putstr("error\n");
+		exit(0);
 	}
-	else if (ft_dot(buf) == 0)
-	{
-		printf("-1, Caractere invalide\n");
-		return (-1);
-	}
-	else if (ft_diese(tab, buf) == 0)
-	{
-		printf("-1, Nombre de dieses invalide\n");
-		return (-1);
-	}
-	else if (ft_valid(tab, buf) == 0)
-	{
-		printf("-1, Piece invalide\n");
-		return (-1);
-	}
-	printf("0, OK\n");
-	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 10:38:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/12 13:55:17 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:56:34 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	*ft_is_z_up(char **tab, char *buf, int *pieces, int *found)
 {

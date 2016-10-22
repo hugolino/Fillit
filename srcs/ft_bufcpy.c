@@ -6,12 +6,11 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 13:25:50 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/12 16:52:10 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:38:42 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char		**ft_malloc_tab(char **tab, char *buf)
 {
@@ -87,9 +86,8 @@ char		**ft_bufcpy(char *buf, t_coord *cd)
 			ct.j++;
 		}
 		TABCT = '\0';
-		ct.i++;
+		NB_L = ct.i++;
 	}
 	tab[ct.i][0] = '0';
-	NB_L = ct.i;
 	return (tab);
 }

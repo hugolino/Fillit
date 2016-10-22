@@ -6,12 +6,11 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:17:10 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/12 13:46:16 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:54:27 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	*ft_is_lhorl(char **tab, char *buf, int *pieces, int *found)
 {

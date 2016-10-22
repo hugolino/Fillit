@@ -6,12 +6,11 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:20:41 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/21 19:27:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/22 15:54:38 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	*ft_is_square(char **tab, char *buf, int *pieces, int *found)
 {
