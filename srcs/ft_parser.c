@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 12:51:39 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 15:54:14 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:52:44 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ char	*ft_test_t(char **tab, char *buf, int *pieces, int *found)
 	else if (ft_strcmp(ft_is_t_up(tab, buf, pieces, found), "") != 0)
 		trim = ".#.\n###\n";
 	return (trim);
+}
+
+void	ft_read_count(char *argv, t_coord *cd)
+{
+	FD = open(argv, O_RDONLY);
+	RET = read(FD, BUF, BUFF_SIZE);
+	ft_count_pieces(cd);
 }

@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 15:56:00 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:45:05 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 	COTE = ft_sqrt(NB_P * 4);
 	MAP = ft_map_creator(COTE);
 	tetri = BEGIN;
-	while (!ft_resolve(cd, tetri))
+	while (ft_resolve(cd, tetri) == 0)
 	{
 		COTE++;
 		MAP = ft_map_creator(COTE);
@@ -101,9 +101,9 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 		pmap->j = 0;
 		while (pmap->j + LAR <= COTE)
 		{
-			if (ft_check_tetri(cd, tetri, pmap))
+			if (ft_check_tetri(cd, tetri, pmap) == 1)
 			{
-				if (ft_resolve(cd, NEXT))
+				if (ft_resolve(cd, NEXT) == 1)
 					return (1);
 				else
 					ft_place_tetri(cd, tetri, '.', pmap);
@@ -112,5 +112,6 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 		}
 		pmap->i++;
 	}
+	free(pmap);
 	return (0);
 }

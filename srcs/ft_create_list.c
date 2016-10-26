@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 15:40:11 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:37:33 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_etri	*ft_make_list(t_coord *cd)
 		i++;
 	}
 	tetri = BEGIN;
+	free(j);
 	return (tetri);
 }
 

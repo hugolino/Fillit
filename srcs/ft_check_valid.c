@@ -6,7 +6,7 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 14:56:46 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/03 12:50:16 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:35:37 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ int		ft_valid(char **tab, char *buf)
 			if (ft_check_last(tab, i) == 0)
 				return (0);
 		}
-		else if (tab[i][0] == '\n')
-			sleep(0);
 		else
 		{
 			if (ft_check_lines(tab, i) == 0)

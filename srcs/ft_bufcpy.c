@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 13:25:50 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/22 15:38:42 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:32:29 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,6 @@ int			ft_countl(char *buf)
 		i++;
 	}
 	return (count);
-}
-
-void		ft_puttab(char **tab, char *buf)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < ft_countl(buf))
-	{
-		j = 0;
-		while (tab[i][j] != '\0')
-		{
-			write(1, &tab[i][j], 1);
-			j++;
-		}
-		i++;
-	}
 }
 
 char		**ft_bufcpy(char *buf, t_coord *cd)

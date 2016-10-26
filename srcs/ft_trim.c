@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/22 15:56:18 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:47:35 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 	int		i;
 
 	i = 0;
-	trim = (char *)malloc(sizeof(char) * ft_strlen(buf) + 2);
+	trim = (char *)malloc(sizeof(char) * ft_strlen(buf));
 	while (*pieces < ft_countl(buf) + 1)
 	{
 		*found = 0;
@@ -48,6 +48,8 @@ char	*ft_sub_trim(char **tab, char *buf)
 	*pieces = 0;
 	found = (int *)malloc(sizeof(int));
 	trim = ft_trim(tab, buf, pieces, found);
+	free(found);
+	free(pieces);
 	return (trim);
 }
 

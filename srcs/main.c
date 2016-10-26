@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:18:58 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/22 16:02:27 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 15:03:05 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int		main(int argc, char **argv)
 	BUF = (char *)malloc(sizeof(char) * BUFF_SIZE);
 	if (argc == 2)
 	{
-		FD = open(argv[1], O_RDONLY);
-		RET = read(FD, BUF, BUFF_SIZE);
-		ft_count_pieces(cd);
+		ft_read_count(argv[1], cd);
 		TAB = ft_bufcpy(BUF, cd);
 		ft_errors(RET, BUF, TAB);
 		BUF = ft_sub_trim(TAB, BUF);
@@ -37,6 +35,8 @@ int		main(int argc, char **argv)
 			ft_putstr(MAP[i]);
 		free(tetri);
 	}
+	else
+		ft_putstr("error\n");
 	free(cd);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:16:26 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/10/22 16:08:57 by rthys            ###   ########.fr       */
+/*   Updated: 2016/10/26 14:53:17 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int					ft_diese(char **tab, char *buf);
 char				**ft_bufcpy(char *buf, t_coord *cd);
 int					ft_countl(char *buf);
 void				ft_putstr(char const *str);
-void				ft_puttab(char **tab, char *buf);
 char				**ft_malloc_tab(char **tab, char *buf);
 int					ft_valid(char **tab, char *buf);
 int					ft_check_first(char **tab, int i);
@@ -119,5 +118,6 @@ t_etri				*ft_make_list(t_coord *cd);
 char				*ft_cpy_tetri(t_coord *cd, size_t *j);
 void				ft_cpy_first(t_coord *cd, t_etri *tetri, size_t *j);
 int					ft_sqrt(int nbr);
+void				ft_read_count(char *argv, t_coord *cd);
 
 #endif
