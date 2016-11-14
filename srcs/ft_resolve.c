@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:35:48 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/26 14:45:05 by rthys            ###   ########.fr       */
+/*   Updated: 2016/11/14 14:51:11 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int		ft_check_tetri(t_coord *cd, t_etri *tetri, t_int *pmap)
 		}
 		Y_P++;
 	}
-	ft_place_tetri(cd, tetri, LET, pmap);
+	ft_place(cd, tetri, LET, pmap);
 	return (1);
 }
 
-void	ft_place_tetri(t_coord *cd, t_etri *tetri, char c, t_int *pmap)
+void	ft_place(t_coord *cd, t_etri *tetri, char c, t_int *pmap)
 {
 	Y_P = 0;
 	while (Y_P < LEN)
@@ -76,8 +76,8 @@ void	ft_place_tetri(t_coord *cd, t_etri *tetri, char c, t_int *pmap)
 }
 
 void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
-{	
-	COTE = ft_sqrt(NB_P * 4);
+{
+	COTE = ft_sqrt((NB_P) * 4);
 	MAP = ft_map_creator(COTE);
 	tetri = BEGIN;
 	while (ft_resolve(cd, tetri) == 0)
@@ -106,7 +106,7 @@ int		ft_resolve(t_coord *cd, t_etri *tetri)
 				if (ft_resolve(cd, NEXT) == 1)
 					return (1);
 				else
-					ft_place_tetri(cd, tetri, '.', pmap);
+					ft_place(cd, tetri, '.', pmap);
 			}
 			pmap->j++;
 		}

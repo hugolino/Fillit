@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/26 14:47:35 by rthys            ###   ########.fr       */
+/*   Updated: 2016/11/14 13:09:30 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 	while (*pieces < ft_countl(buf) + 1)
 	{
 		*found = 0;
-		trim = ft_strcat(trim, ft_is_square(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_z(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_z_up(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_line_hor(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_line_ver(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_s(tab, buf, pieces, found));
-		trim = ft_strcat(trim, ft_is_s_up(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_square(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_z(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_z_up(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_line_hor(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_line_ver(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_s(tab, buf, pieces, found));
+		trim = ft_strcat(trim, ft_s_up(tab, buf, pieces, found));
 		trim = ft_strcat(trim, ft_test_t(tab, buf, pieces, found));
 		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;

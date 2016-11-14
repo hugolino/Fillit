@@ -6,13 +6,13 @@
 /*   By: rthys <rthys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 14:27:13 by rthys             #+#    #+#             */
-/*   Updated: 2016/10/26 14:37:33 by rthys            ###   ########.fr       */
+/*   Updated: 2016/11/14 13:16:10 by rthys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j)
+t_etri		*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j)
 {
 	t_etri	*new_t;
 	size_t	k;
@@ -36,7 +36,7 @@ t_etri	*ft_add_list(t_coord *cd, t_etri *tetri, size_t *j)
 	return (tetri);
 }
 
-t_etri	*ft_make_list(t_coord *cd)
+t_etri		*ft_make_list(t_coord *cd)
 {
 	t_etri	*tetri;
 	size_t	i;
@@ -64,7 +64,7 @@ t_etri	*ft_make_list(t_coord *cd)
 	return (tetri);
 }
 
-char	*ft_cpy_tetri(t_coord *cd, size_t *j)
+char		*ft_cpy_tetri(t_coord *cd, size_t *j)
 {
 	char	*str;
 
