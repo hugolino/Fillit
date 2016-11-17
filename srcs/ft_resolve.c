@@ -77,7 +77,7 @@ void	ft_place(t_coord *cd, t_etri *tetri, char c, t_int *pmap)
 
 void	ft_prepare_algo(t_coord *cd, t_etri *tetri)
 {
-	COTE = ft_sqrt((NB_P) * 4);
+	COTE = ft_sqrt_int((NB_P) * 4);
 	MAP = ft_map_creator(COTE);
 	tetri = BEGIN;
 	while (ft_resolve(cd, tetri) == 0)

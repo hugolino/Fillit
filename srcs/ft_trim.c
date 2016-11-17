@@ -6,7 +6,7 @@
 /*   By: rthys <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 11:52:42 by rthys             #+#    #+#             */
-/*   Updated: 2016/11/16 19:56:30 by rthys            ###   ########.fr       */
+/*   Updated: 2016/11/17 11:31:03 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 
 	i = 0;
 	trim = (char *)malloc(sizeof(char) * ft_strlen(buf));
-	while (*pieces  < ft_countl(buf) + 1 && (*found = 0) == 0)
+	while (*pieces < ft_countl(buf) + 1 && (*found = 0) == 0)
 	{
 		trim = ft_strcat(trim, ft_square(tab, buf, pieces, found));
 		trim = ft_strcat(trim, ft_z(tab, buf, pieces, found));
@@ -32,10 +32,7 @@ char	*ft_trim(char **tab, char *buf, int *pieces, int *found)
 		trim = ft_strcat(trim, ft_test_l(tab, buf, pieces, found));
 		*pieces += 5;
 		if (*found == 0)
-		{
-			ft_putstr("error\n");
-			exit(0);
-		}
+			ft_errors(-1, buf, tab);
 		if (*pieces != ft_countl(buf) + 1)
 			trim = ft_strcat(trim, "\n");
 	}
@@ -85,14 +82,4 @@ char	**ft_cpy_tab(char **tab2, t_coord *cd)
 		y++;
 	}
 	return (tab1);
-}
-
-int		ft_sqrt(int nbr)
-{
-	int sqrt;
-
-	sqrt = 0;
-	while (sqrt * sqrt < nbr)
-		sqrt++;
-	return (sqrt);
 }
