@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/09 12:49:18 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/09 12:50:10 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/11 16:19:08 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char		*ft_strncat(char *dst, const char *src, size_t n)
 	b = 0;
 	while (dst[a] != '\0')
 		a++;
-	while (b != n)
+	while (b != n && src[b])
 	{
 		dst[a] = src[b];
 		a++;

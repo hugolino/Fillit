@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_char.c                                    :+:      :+:    :+:   */
+/*   ft_memcpy_inv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdecaux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/30 12:07:28 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/30 12:08:29 by hdecaux          ###   ########.fr       */
+/*   Created: 2016/11/12 18:20:45 by hdecaux           #+#    #+#             */
+/*   Updated: 2016/11/12 18:25:58 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_count_char(char const *str, char c, int a)
+void	*ft_memcpy_inv(void *dst, const void *src, size_t n)
 {
-	size_t		w;
+	char	*srctmp;
+	char	*dsttmp;
 
-	w = 0;
-	while (str[a])
-	{
-		if (str[a] == c)
-		{
-			a++;
-			break ;
-		}
-		else if (str[a] != c)
-		{
-			w++;
-			a++;
-		}
-	}
-	return (w);
+	if (n == 0 || dst == src)
+		return (dst);
+	srctmp = (char *)src;
+	dsttmp = (char *)dst;
+	while (n--)
+		dsttmp[n] = srctmp[n];
+	return (dst);
 }

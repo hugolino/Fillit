@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/16 13:34:20 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/16 13:39:09 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/10 13:12:35 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_striter(char *s, void (*f)(char *))
 {
 	size_t i;
 
-	i = 0;
-	while (s[i])
+	if (s != NULL && f != NULL)
 	{
-		(*f)(&s[i]);
-		i++;
+		i = 0;
+		while (s[i] != 0)
+		{
+			(*f)(&s[i]);
+			i++;
+		}
 	}
 }

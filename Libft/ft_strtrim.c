@@ -6,34 +6,59 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/16 11:18:38 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/28 11:41:08 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/12 17:58:11 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strtrim(const char *s)
+static size_t	ft_char(const char *s)
 {
-	size_t	i;
-	size_t	len;
-	size_t	j;
+	size_t	w;
+	int		i;
+
+	w = 0;
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+	w = i;
+	if (s[i] != '\0')
+	{
+		i = ft_strlen(s) - 1;
+		while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		{
+			i--;
+			w++;
+		}
+	}
+	return (ft_strlen(s) - w);
+}
+
+char			*ft_strtrim(const char *s)
+{
+	int		i;
+	int		k;
+	int		j;
 	char	*str;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
-	len = ft_strlen(s);
-	j = len;
-	while (s[i] && (s[i] == '\n' || s[i] == '\t' || s[i] == ' '))
+	k = -1;
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * ft_char(s) + 1);
+	if (str == NULL)
+		return (NULL);
+	ft_bzero(str, j + 1);
+	while (s[i] != '\0' && (s[i] == '\n' || s[i] == '\t' || s[i] == ' '))
+		i++;
+	while (s[j] == '\0' || s[j] == '\n' || s[j] == '\t' || s[j] == ' ')
+		j--;
+	while (i <= j)
 	{
+		str[++k] = s[i];
 		i++;
 	}
-	while (j > 0 && (s[j] == '\0' || s[j] == '\n' || s[j] == '\t' ||
-	s[j] == ' '))
-	{
-		j--;
-	}
-	if (len < j - i)
-		return ("");
-	len = j - i;
-	str = ft_strsub(s, i, len + 1);
+	str[++k] = '\0';
 	return (str);
 }

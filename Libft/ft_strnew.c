@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/14 13:49:10 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/28 11:40:28 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/11 12:14:36 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
-	mem = (char*)malloc(size);
+	mem = (char*)malloc(size + 1);
 	if (mem == NULL)
 		return (NULL);
 	while (mem[i])

@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/28 16:23:47 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/29 13:01:48 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/11 17:44:41 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*list;
 
-	list = (t_list*)malloc(sizeof(t_list));
-	if (list == NULL)
+	if ((list = (t_list*)malloc(sizeof(t_list))) == NULL)
 		return (NULL);
 	if (content == NULL)
 	{
@@ -26,7 +25,12 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		list->content = (void*)content;
+		if ((list->content = malloc(sizeof(content))) == NULL)
+		{
+			free(list);
+			return (NULL);
+		}
+		ft_memcpy(list->content, content, content_size);
 		list->content_size = content_size;
 	}
 	list->next = NULL;

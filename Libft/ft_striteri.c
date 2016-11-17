@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/16 13:39:40 by hdecaux           #+#    #+#             */
-/*   Updated: 2015/10/16 13:41:14 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/11/10 13:31:06 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t i;
 
-	i = 0;
-	while (s[i])
+	if (s != NULL && f != NULL)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		i = 0;
+		if (s[i] != 0)
+		{
+			while (s[i])
+			{
+				(*f)(i, &s[i]);
+				i++;
+			}
+		}
 	}
 }
