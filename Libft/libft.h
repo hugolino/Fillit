@@ -6,7 +6,7 @@
 /*   By: hdecaux <hdecaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/16 13:43:13 by hdecaux           #+#    #+#             */
-/*   Updated: 2016/11/13 17:09:41 by hdecaux          ###   ########.fr       */
+/*   Updated: 2016/12/12 12:00:55 by hdecaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ int					ft_strequ(char const *s1, char const *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_free(char const *s1, char const *s2, int free);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
+size_t				ft_strlochr(char *s, char c, size_t n);
 char				*ft_strlowcase(char *str);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -84,7 +86,9 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);
+size_t				ft_strnochr(char *s, char c, size_t n);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
+int					ft_strochr(char *s, char c);
 char				*ft_strrchr(const char *s, int c);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strstr(const char *s1, const char *s2);
